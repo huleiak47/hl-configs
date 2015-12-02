@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: insert date in chinese
+# key: date2
+# --
+`(format-time-string "%Y年%m月%d日")`

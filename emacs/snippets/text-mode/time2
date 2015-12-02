@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: insert time
+# key: time2
+# --
+`(format-time-string "%H:%M:%S")`

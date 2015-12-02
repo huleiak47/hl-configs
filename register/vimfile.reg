@@ -1,0 +1,116 @@
+Windows Registry Editor Version 5.00
+
+;-------vim------------
+[HKEY_CLASSES_ROOT\Vim.File]
+@="Vim.File"
+
+[HKEY_CLASSES_ROOT\Vim.File\DefaultIcon]
+@="\"d:\\portable\\Vim\\vim74\\gvim.exe\",0"
+
+[HKEY_CLASSES_ROOT\Vim.File\shell]
+
+[HKEY_CLASSES_ROOT\Vim.File\shell\open]
+
+[HKEY_CLASSES_ROOT\Vim.File\shell\open\command]
+@="\"d:\\portable\\Vim\\vim74\\gvim.exe\" \"%1\""
+
+;-------context menu-------
+[HKEY_CLASSES_ROOT\*\shell]
+
+[HKEY_CLASSES_ROOT\*\shell\vim]
+@="在新的 gVim 窗口中编辑"
+
+[HKEY_CLASSES_ROOT\*\shell\vim\command]
+@="\"d:\\portable\\Vim\\vim74\\gvim.exe\" \"%1\""
+
+[HKEY_CLASSES_ROOT\*\shell\vim-remote]
+@="在已打开的 gVim 窗口中编辑"
+
+[HKEY_CLASSES_ROOT\*\shell\vim-remote\command]
+@="\"d:\\portable\\Vim\\vim74\\gvim.exe\" --remote-silent \"%1\""
+
+;--------file-------------
+[HKEY_CLASSES_ROOT\.vim]
+@="Vim.File"
+"Content Type"="text/plain"
+
+[HKEY_CLASSES_ROOT\.c]
+@="Vim.File"
+"Content Type"="text/plain"
+
+[HKEY_CLASSES_ROOT\.cpp]
+@="Vim.File"
+"Content Type"="text/plain"
+
+[HKEY_CLASSES_ROOT\.cxx]
+@="Vim.File"
+"Content Type"="text/plain"
+
+[HKEY_CLASSES_ROOT\.cc]
+@="Vim.File"
+"Content Type"="text/plain"
+
+[HKEY_CLASSES_ROOT\.h]
+@="Vim.File"
+"Content Type"="text/plain"
+
+[HKEY_CLASSES_ROOT\.hpp]
+@="Vim.File"
+"Content Type"="text/plain"
+
+[HKEY_CLASSES_ROOT\.hxx]
+@="Vim.File"
+"Content Type"="text/plain"
+
+[HKEY_CLASSES_ROOT\.hh]
+@="Vim.File"
+"Content Type"="text/plain"
+
+[HKEY_CLASSES_ROOT\.txt]
+@="Vim.File"
+"Content Type"="text/plain"
+
+[HKEY_CLASSES_ROOT\.ini]
+@="Vim.File"
+"Content Type"="text/plain"
+
+[HKEY_CLASSES_ROOT\.log]
+@="Vim.File"
+"Content Type"="text/plain"
+
+[HKEY_CLASSES_ROOT\.java]
+@="Vim.File"
+"Content Type"="text/plain"
+
+[HKEY_CLASSES_ROOT\.cs]
+@="Vim.File"
+"Content Type"="text/plain"
+
+[HKEY_CLASSES_ROOT\.xml]
+@="Vim.File"
+"Content Type"="text/plain"
+
+[HKEY_CLASSES_ROOT\.asm]
+@="Vim.File"
+"Content Type"="text/plain"
+
+[HKEY_CLASSES_ROOT\.a51]
+@="Vim.File"
+"Content Type"="text/plain"
+
+[HKEY_CLASSES_ROOT\.mak]
+@="Vim.File"
+"Content Type"="text/plain"
+
+[HKEY_CLASSES_ROOT\.vprj]
+@="Vim.File"
+"Content Type"="text/plain"
+
+[HKEY_CLASSES_ROOT\.tex]
+@="Vim.File"
+"Content Type"="text/plain"
+
+[HKEY_CLASSES_ROOT\.md]
+@="Vim.File"
+"Content Type"="text/plain"
+

@@ -1,0 +1,26 @@
+[core]
+#    gitproxy=https://127.0.0.1:8087
+	autocrlf = input
+[http]
+	sslVerify = false
+
+[user]
+	email = huleiak47@gmail.com
+	name = Hu Lei
+[push]
+	default = simple
+[alias]
+    ci = commit
+    co = checkout
+    cl = clone
+    h = help
+    st = status
+    br = branch
+    rst = reset
+    unstage = reset HEAD --
+    last = log -3 HEAD
+    df = diff
+    mg = merge
+    h = help
+[status]
+    showUntrackedFiles = no

@@ -1,0 +1,14 @@
+"3.8.2 (created: 2014/02/13 23:52:43)
+
+set hlsearch
+set tabnumbers
+set complete=bhslf
+set defsearch=bing
+set previouspattern=\\bprev|previous\\b,^<$,^(<<|«)$,^(<|«),(<|«)$,\\s*上一页\\s*
+set nextpattern=\\bnext\\b,^>$,^(>>|»)$,^(>|»),(>|»)$,\\bmore\\b,\\s*下一页\\s*
+source! "C:\\Users\\hulei\\_vimperatorrc.local"
+
+nmap ,/ :nohlsearch<CR><ESC>
+nmap x :bd -select 'lastactive'<CR>
+
+" vim: set ft=vimperator:

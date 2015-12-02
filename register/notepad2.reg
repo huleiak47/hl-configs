@@ -1,0 +1,13 @@
+Windows Registry Editor Version 5.00
+
+;-------context menu-------
+[HKEY_CLASSES_ROOT\*\shell]
+
+[HKEY_CLASSES_ROOT\*\shell\notepad2]
+@="”√ Notepad2 ±‡º≠"
+
+[HKEY_CLASSES_ROOT\*\shell\notepad2\command]
+@="\"d:\\portable\\bin\\Notepad2.exe\" \"%1\""
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\notepad.exe]
+"Debugger"="\"d:\\portable\\bin\\Notepad2.exe\" /z"

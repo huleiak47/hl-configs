@@ -1,0 +1,70 @@
+\documentclass[11pt,compress,t]{beamer}
+\usetheme{Antibes}
+\usecolortheme{rose}
+\usepackage{listings}
+\usepackage{indentfirst}
+\setlength{\parindent}{2em}
+
+\usepackage{helvet} %arial
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{xcolor}
+\usepackage{xltxtra,fontspec,xunicode}
+\usepackage[slantfont,boldfont,CJKnumber,CJKchecksingle]{xeCJK} % 允许斜体和粗体
+
+%浮动表格，用于定位
+\usepackage{float}
+
+\usepackage{caption}
+\captionsetup{hypcap=true}
+
+
+\setCJKmainfont{SimHei}
+
+%\def\figurename{图}
+%\def\tablename{表}
+\renewcommand{\today}{\number\year 年\number\month 月\number\day 日}
+
+
+
+\begin{document}
+
+\AtBeginSection[]
+{
+    \begin{frame}<beamer>
+    \frametitle{报告提要}
+        \tableofcontents[currentsection]
+    \end{frame}
+}
+
+\AtBeginSubsection[]
+{
+    \begin{frame}<beamer>
+    \frametitle{报告提要}
+        \tableofcontents[currentsection,currentsubsection]
+    \end{frame}
+}
+
+\title{xxxx}
+\author{胡磊}
+\institute{飞天诚信科技股份有限公司}
+\date{\today}
+
+\pdfbookmark{首页}{titlepage}
+\begin{frame}
+    \titlepage
+\end{frame}
+
+\pdfbookmark{目录}{cnt}
+\begin{frame}
+\tableofcontents
+\end{frame}
+
+\section{xxxxxx}
+\begin{frame}
+    \frametitle{xxxxx}
+    \begin{itemize}
+        \item ....
+    \end{itemize}
+\end{frame}
+

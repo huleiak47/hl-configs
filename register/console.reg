@@ -1,0 +1,42 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Console\TrueTypeFont]
+"00"="Bitstream Vera Sans Mono"
+"0"="Consolas"
+"000"="FixedSys"
+
+[HKEY_CURRENT_USER\Console]
+"CodePage"=dword:000003a8
+"ColorTable00"=dword:00222827
+"ColorTable01"=dword:009e5401
+"ColorTable02"=dword:0004aa74
+"ColorTable03"=dword:00a6831a
+"ColorTable04"=dword:003403a7
+"ColorTable05"=dword:009c5689
+"ColorTable06"=dword:0049b6b6
+"ColorTable07"=dword:00cacaca
+"ColorTable08"=dword:007c7c7c
+"ColorTable09"=dword:00f58303
+"ColorTable10"=dword:0006d08d
+"ColorTable11"=dword:00e5c258
+"ColorTable12"=dword:004b04f3
+"ColorTable13"=dword:00b87da8
+"ColorTable14"=dword:0081cccc
+"ColorTable15"=dword:00ffffff
+"CursorSize"=dword:00000019
+"FaceName"="Consolas"
+"FontFamily"=dword:00000036
+"FontSize"=dword:00100000
+"FontWeight"=dword:00000000
+"FullScreen"=dword:00000000
+"HistoryBufferSize"=dword:00000800
+"InsertMode"=dword:00000001
+"LoadConIme"=dword:00000001
+"NumberOfHistoryBuffers"=dword:00000800
+"PopupColors"=dword:000000f5
+"QuickEdit"=dword:00000000
+"ScreenBufferSize"=dword:400000b0
+"ScreenColors"=dword:00000007
+"WindowSize"=dword:003000b0
+"CodePage"=dword:000003a8
+"CurrentPage"=dword:00000001

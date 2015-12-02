@@ -1,0 +1,6 @@
+set gvimpath=astyle_c.bat
+set gvimargs={file}
+vim
+set gvimpath=gvim.exe
+set gvimargs=+{line} {file}
+

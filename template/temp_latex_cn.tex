@@ -1,0 +1,135 @@
+\documentclass[a4paper,11pt,oneside]{article}
+\usepackage{helvet} %arial
+\usepackage{xcolor}
+\usepackage{comment}
+\usepackage{tabularx}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage{listings}
+\usepackage{makecell}
+\usepackage{colortbl} %彩色表格
+\lstset{numbers=right,numberstyle=\scriptsize,backgroundcolor=\color{lightgray},
+    frame=trbl,framesep=5pt,%framexleftmargin=8mm,
+    basicstyle=\linespread{1}\ttfamily\small,keywordstyle=\color{blue},ndkeywordstyle=\color{brown},
+    commentstyle=\color{teal},identifierstyle=\color{black},stringstyle=\color{purple},
+    showstringspaces=false,breaklines=true,escapeinside=``,extendedchars=false}
+
+%首行缩进
+\usepackage{indentfirst}
+
+\usepackage{xltxtra,fontspec,xunicode}
+
+\setmainfont{Times New Roman}
+\setmonofont{Consolas}
+\setsansfont{Arial}
+
+%chinese
+\usepackage[fancyhdr,hyperref]{ctexcap}
+\CTEXsetup[format={\Large\bf\sf}]{section}
+\CTEXsetup[format+={\sf}]{subsection}
+\CTEXsetup[format+={\sf}]{subsubsection}
+\CTEXsetup[format+={\sf}]{chapter}
+
+\setCJKmainfont{新宋体}
+\setCJKmonofont{楷体}
+\setCJKsansfont{黑体}
+
+%english
+%\usepackage[fancyhdr,hyperref,nocap]{ctexcap}
+
+\usepackage[cols=2,number=none,header=plain,toc,hypertoc]{glossary}
+
+%Chinese
+\renewcommand{\glossaryname}{缩略语}
+\renewcommand{\entryname}{缩略语}
+\renewcommand{\descriptionname}{描述}
+\renewcommand{\glspageheader}{页码}
+
+\makeglossary
+
+%BIB上标引用
+\usepackage[super,square]{natbib}
+%浮动表格，用于定位
+\usepackage{float}
+
+\usepackage{caption}
+\captionsetup{hypcap=true}
+% title
+%\usepackage[bf,small,indentafter,pagestyles]{titlesec}
+
+\usepackage[a4paper,top=0.75in,bottom=1in,left=1in,right=1in]{geometry}
+
+%pdf的超链接和书签
+\usepackage[%
+    %%pdftex,
+    xetex,
+    bookmarksnumbered,
+    bookmarksopen,
+    bookmarksopenlevel=1,
+    colorlinks,
+    citecolor=blue,
+    linkcolor=blue,
+    CJKbookmarks=true,
+    unicode=true
+    ]{hyperref}
+
+%Chinese
+\renewcommand{\figureautorefname}{图}
+\renewcommand{\tableautorefname}{表}
+\renewcommand{\sectionautorefname}{章节}
+\renewcommand{\subsectionautorefname}{章节}
+\renewcommand{\chapterautorefname}{章节}
+
+%页眉与页脚
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{Title} % Change this Title
+\fancyhead[R]{\thepage}
+
+
+%行距
+\renewcommand{\baselinestretch}{1.3}
+%段距
+\parskip=1mm plus 1pt
+
+\setlength{\abovecaptionskip}{10pt}
+\setlength{\belowcaptionskip}{10pt}
+%缩进2字节
+\setlength{\parindent}{2em}
+
+\renewcommand{\textfraction}{0.1}
+\renewcommand{\floatpagefraction}{0.9}
+\renewcommand{\topfraction}{0.9}
+\renewcommand{\bottomfraction}{0.9}
+
+%宽松形式
+\sloppy
+
+\usepackage{fancyvrb}
+\RecustomVerbatimEnvironment{Verbatim}{Verbatim}{frame=single,fontsize=\footnotesize,rulecolor=\color{blue},numbers=left}
+
+\begin{document}
+\pagenumbering{roman}
+
+\thispagestyle{empty}
+
+~~
+\vfill
+\begin{center}
+    %tilte
+\end{center}
+\vfill
+
+\newpage
+\tableofcontents
+
+\newpage
+
+\pagenumbering{arabic}
+
+\section{...}
+
+\end{document}

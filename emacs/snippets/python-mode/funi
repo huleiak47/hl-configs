@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: import unicode_literals
+# key: funi
+# group: Header
+# --
+from __future__ import unicode_literals
+$0
