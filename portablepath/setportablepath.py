@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env python
+﻿# !/usr/bin/env python
 #-*- coding:utf-8 -*-
 ##
 # @file setprotablepath.py
@@ -7,16 +7,37 @@
 # @version 1.0
 # @date 2011-05-08
 
-#设置的变量
-import os, sys
-g_basemap = {
-        u"basedir" : os.path.abspath("../..").decode("gbk").split(os.path.sep),
-        }
+# 设置的变量
+import os
+import sys
 
-#文件配置
+for disk in "ABCDEFGHIJKLMN":
+    if os.path.isdir(disk + ":\\portable"):
+        basedir = disk + ":\\portable"
+        break
+else:
+    while 1:
+        basedir = raw_input("input the portable path: ")
+        if os.path.isdir(basedir):
+            break
+        if basedir == "exit":
+            sys.exit(1)
+
+g_basemap = {
+    u"basedir": os.path.normpath(basedir).split("\\"),
+}
+
+# 文件配置
 g_files = [
-#templatefile       destfile        separator      encoding
-(u"environment.reg.tmp", u"./environment.reg", u"\\\\", "gbk"),
+    #templatefile               , destfile                 , separator, encoding,
+    (u"environment.reg.tmp"     , u"environment.reg"     , u"\\\\"  , "gbk")  ,
+    (u"ahkfile.reg.tmp"         , u"ahkfile.reg"         , u"\\\\"  , "gbk")  ,
+    (u"notepad2.reg.tmp"        , u"notepad2.reg"        , u"\\\\"  , "gbk")  ,
+    (u"vimfile.reg.tmp"         , u"vimfile.reg"         , u"\\\\"  , "gbk")  ,
+    (u"vimfile.reg.tmp"         , u"vimfile.reg"         , u"\\\\"  , "gbk")  ,
+    (u"vs2008_for_scons.reg.tmp", u"vs2008_for_scons.reg", u"\\\\"  , "gbk")  ,
+    (u"vs2010_for_scons.reg.tmp", u"vs2010_for_scons.reg", u"\\\\"  , "gbk")  ,
+    (u"vs2012_for_scons.reg.tmp", u"vs2012_for_scons.reg", u"\\\\"  , "gbk")  ,
 ]
 
 OFF_TEMP = 0
@@ -35,13 +56,14 @@ def getmap(sep):
     return ret
 
 g_maps = {
-        u"/" : getmap(u"/"),
-        u"\\" : getmap(u"\\"),
-        u"\\\\": getmap(u"\\\\"),
-        }
+    u"/": getmap(u"/"),
+    u"\\": getmap(u"\\"),
+    u"\\\\": getmap(u"\\\\"),
+}
 
 import re
 pattern = re.compile(u"<reg_ext_sz>(.+?)</reg_ext_sz>")
+
 
 def reg_ext_sz_repl(mobj):
     s = mobj.group(1).replace(u"\\\\", u"\\")
@@ -54,16 +76,19 @@ def reg_ext_sz_repl(mobj):
 
     return u"hex(2):" + u",".join(ret)
 
+
 def reg_ext_sz_change(content):
     return pattern.sub(reg_ext_sz_repl, content)
 
 
 def main():
+    if not os.path.exists("regs"):
+        os.mkdir("regs")
     for tf, df, sep, enc in g_files:
         content = open("./templatefile/" + tf, 'r').read().decode('utf-8')
-        content = content % g_maps[sep]
+        content = content.format(**g_maps[sep])
         content = reg_ext_sz_change(content)
-        filename = df
+        filename = "regs/" + df
         print "write file %s begin" % filename
         with open(filename, 'w') as f:
             f.write(content.encode(enc))

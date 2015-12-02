@@ -5,29 +5,29 @@ Windows Registry Editor Version 5.00
 @="Vim.File"
 
 [HKEY_CLASSES_ROOT\Vim.File\DefaultIcon]
-@="\"d:\\portable\\Vim\\vim74\\gvim.exe\",0"
+@="\"{basedir}\\Vim\\vim74\\gvim.exe\",0"
 
 [HKEY_CLASSES_ROOT\Vim.File\shell]
 
 [HKEY_CLASSES_ROOT\Vim.File\shell\open]
 
 [HKEY_CLASSES_ROOT\Vim.File\shell\open\command]
-@="\"d:\\portable\\Vim\\vim74\\gvim.exe\" \"%1\""
+@="\"{basedir}\\Vim\\vim74\\gvim.exe\" \"%1\""
 
 ;-------context menu-------
 [HKEY_CLASSES_ROOT\*\shell]
 
 [HKEY_CLASSES_ROOT\*\shell\vim]
-@="ÔÚĞÂµÄ gVim ´°¿ÚÖĞ±à¼­"
+@="åœ¨æ–°çš„ gVim çª—å£ä¸­ç¼–è¾‘"
 
 [HKEY_CLASSES_ROOT\*\shell\vim\command]
-@="\"d:\\portable\\Vim\\vim74\\gvim.exe\" \"%1\""
+@="\"{basedir}\\Vim\\vim74\\gvim.exe\" \"%1\""
 
 [HKEY_CLASSES_ROOT\*\shell\vim-remote]
-@="ÔÚÒÑ´ò¿ªµÄ gVim ´°¿ÚÖĞ±à¼­"
+@="åœ¨å·²æ‰“å¼€çš„ gVim çª—å£ä¸­ç¼–è¾‘"
 
 [HKEY_CLASSES_ROOT\*\shell\vim-remote\command]
-@="\"d:\\portable\\Vim\\vim74\\gvim.exe\" --remote-silent \"%1\""
+@="\"{basedir}\\Vim\\vim74\\gvim.exe\" --remote-silent \"%1\""
 
 ;--------file-------------
 [HKEY_CLASSES_ROOT\.vim]

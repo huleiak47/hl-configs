@@ -1,20 +1,20 @@
 Windows Registry Editor Version 5.00
 
 [HKEY_CURRENT_USER\Environment]
-"JAVA_HOME"="%(basedir)s\\Java\\jdk1.7.0_51"
-"JC_HOME"="%(basedir)s\\Java\\java_card_kit-2_2_2"
+"JAVA_HOME"="{basedir}\\Java\\jdk1.7.0_51"
+"JC_HOME"="{basedir}\\Java\\java_card_kit-2_2_2"
 "PYTHON_HOME"="C:\\Python27"
-"MINGW_HOME"="%(basedir)s\\MinGW"
-"MSYS_HOME"="%(basedir)s\\msys"
-"VIM_HOME"="%(basedir)s\\Vim\\vim74"
-"LIBS_HOME"="%(basedir)s\\Library"
-"WINDBG_HOME"="%(basedir)s\\DebuggingToolsforWindowsX86"
-"VS2008HOME"="%(basedir)s\\VS2008"
-"SVN_HOME"="%(basedir)s\\Subversion"
-"PORTABLE_HOME"="%(basedir)s"
-"PANDOC_HOME"="%(basedir)s\\Pandoc"
-"PRINCE_HOME"="%(basedir)s\\Prince"
-"DOXYGEN_HOME"="%(basedir)s\\doxygen"
+"MINGW_HOME"="{basedir}\\MinGW"
+"MSYS_HOME"="{basedir}\\msys"
+"VIM_HOME"="{basedir}\\Vim\\vim74"
+"LIBS_HOME"="{basedir}\\Library"
+"WINDBG_HOME"="{basedir}\\DebuggingToolsforWindowsX86"
+"VS2008HOME"="{basedir}\\VS2008"
+"SVN_HOME"="{basedir}\\Subversion"
+"PORTABLE_HOME"="{basedir}"
+"PANDOC_HOME"="{basedir}\\Pandoc"
+"PRINCE_HOME"="{basedir}\\Prince"
+"DOXYGEN_HOME"="{basedir}\\doxygen"
 
 "HOME"=<reg_ext_sz>%%USERPROFILE%%</reg_ext_sz>
 "EDITOR"="gvim.exe"

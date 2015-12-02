@@ -4,14 +4,14 @@ Windows Registry Editor Version 5.00
 @="AutoHotkey.File"
 
 [HKEY_CLASSES_ROOT\AutoHotkey.File\DefaultIcon]
-@="\"d:\\portable\\AutoHotkey\\AutoHotkey.exe\",0"
+@="\"{basedir}\\AutoHotkey\\AutoHotkey.exe\",0"
 
 [HKEY_CLASSES_ROOT\AutoHotkey.File\shell]
 
 [HKEY_CLASSES_ROOT\AutoHotkey.File\shell\open]
 
 [HKEY_CLASSES_ROOT\AutoHotkey.File\shell\open\command]
-@="\"d:\\portable\\AutoHotkey\\AutoHotkey.exe\" \"%1\""
+@="\"{basedir}\\AutoHotkey\\AutoHotkey.exe\" \"%1\""
 
 
 

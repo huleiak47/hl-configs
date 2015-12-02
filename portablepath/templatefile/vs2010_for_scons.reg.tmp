@@ -1,5 +1,5 @@
 Windows Registry Editor Version 5.00
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\VisualStudio\10.0\Setup\VC]
-"Productdir"="d:\\portable\\VS2010"
+"Productdir"="{basedir}\\VS2010"
 
