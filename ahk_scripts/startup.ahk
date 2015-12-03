@@ -39,9 +39,3 @@ RunFile("FSCapture.exe", PORTABLE_HOME . "\FastStoneCapturePortable\FSCapture.ex
 ;Listary
 RunFile("Listary.exe", PORTABLE_HOME . "\ListaryPortable\Listary.exe", PORTABLE_HOME . "\ListaryPortable", "")
 
-
-if (!WinExist("Task Coach -"))
-{
-    run taskcoach.pyw
-    WaitAndHide("Task Coach -")
-}
