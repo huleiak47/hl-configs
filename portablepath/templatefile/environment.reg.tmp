@@ -16,14 +16,14 @@ Windows Registry Editor Version 5.00
 "PRINCE_HOME"="{basedir}\\Prince"
 "DOXYGEN_HOME"="{basedir}\\doxygen"
 
-"HOME"=<reg_ext_sz>%%USERPROFILE%%</reg_ext_sz>
+"HOME"=<reg_ext_sz>%USERPROFILE%</reg_ext_sz>
 "EDITOR"="gvim.exe"
 
-"INCLUDE"=<reg_ext_sz>%%VS2008HOME%%\\include;%%VS2008HOME%%\\PlatformSDK\Include;%%VS2008HOME%%\\atlmfc\include;%%LIBS_HOME%%\\include;%%LIBS_HOME%%\\wxwidgets\\include;%%LIBS_HOME%%\\wxwidgets\\lib\\vc_lib\\mswu;%%PYTHON_HOME%%\\include;%%OTHER_INCLUDE%%</reg_ext_sz>
-"C_INCLUDE_PATH"=<reg_ext_sz>%%LIBS_HOME%%\\include;%%PYTHON_HOME%%\\include;%%OTHER_INCLUDE%%;%%MINGW_HOME%%\\i686-w64-mingw32\\include</reg_ext_sz>
-"CPLUS_INCLUDE_PATH"=<reg_ext_sz>%%LIBS_HOME%%\\include;%%LIBS_HOME%%\\wxwidgets\\include;%%LIBS_HOME%%\\wxwidgets\\lib\\gcc_lib\\mswu;%%PYTHON_HOME%%\\include;%%OTHER_INCLUDE%%;%%MINGW_HOME%%\\i686-w64-mingw32\\include;%%MINGW_HOME%%\\lib\\gcc\\i686-w64-mingw32\\4.8.1\\include\\c++</reg_ext_sz>
-"LIB"=<reg_ext_sz>%%VS2008HOME%%\\lib;%%VS2008HOME%%\\PlatformSDK\Lib;%%VS2008HOME%%\\atlmfc\lib;%%LIBS_HOME%%\\lib;%%LIBS_HOME%%\\wxwidgets\\lib\\vc_lib;%%PYTHON_HOME%%\\libs;%%OTHER_LIB%%</reg_ext_sz>
-"LIBPATH"=<reg_ext_sz>%%VS2008HOME%%\\lib;%%VS2008HOME%%\\PlatformSDK\Lib;%%VS2008HOME%%\\atlmfc\lib;%%LIBS_HOME%%\\lib;%%LIBS_HOME%%\\wxwidgets\\lib\\vc_lib;%%PYTHON_HOME%%\\libs;%%OTHER_LIB%%</reg_ext_sz>
-"LIBRARY_PATH"=<reg_ext_sz>%%LIBS_HOME%%\\lib;%%LIBS_HOME%%\\wxwidgets\\lib\\gcc_lib;%%PYTHON_HOME%%\\libs;%%OTHER_LIB%%</reg_ext_sz>
+"INCLUDE"=<reg_ext_sz>%VS2008HOME%\\include;%VS2008HOME%\\PlatformSDK\Include;%VS2008HOME%\\atlmfc\include;%LIBS_HOME%\\include;%LIBS_HOME%\\wxwidgets\\include;%LIBS_HOME%\\wxwidgets\\lib\\vc_lib\\mswu;%PYTHON_HOME%\\include;%OTHER_INCLUDE%</reg_ext_sz>
+"C_INCLUDE_PATH"=<reg_ext_sz>%LIBS_HOME%\\include;%PYTHON_HOME%\\include;%OTHER_INCLUDE%;%MINGW_HOME%\\i686-w64-mingw32\\include</reg_ext_sz>
+"CPLUS_INCLUDE_PATH"=<reg_ext_sz>%LIBS_HOME%\\include;%LIBS_HOME%\\wxwidgets\\include;%LIBS_HOME%\\wxwidgets\\lib\\gcc_lib\\mswu;%PYTHON_HOME%\\include;%OTHER_INCLUDE%;%MINGW_HOME%\\i686-w64-mingw32\\include;%MINGW_HOME%\\lib\\gcc\\i686-w64-mingw32\\4.8.1\\include\\c++</reg_ext_sz>
+"LIB"=<reg_ext_sz>%VS2008HOME%\\lib;%VS2008HOME%\\PlatformSDK\Lib;%VS2008HOME%\\atlmfc\lib;%LIBS_HOME%\\lib;%LIBS_HOME%\\wxwidgets\\lib\\vc_lib;%PYTHON_HOME%\\libs;%OTHER_LIB%</reg_ext_sz>
+"LIBPATH"=<reg_ext_sz>%VS2008HOME%\\lib;%VS2008HOME%\\PlatformSDK\Lib;%VS2008HOME%\\atlmfc\lib;%LIBS_HOME%\\lib;%LIBS_HOME%\\wxwidgets\\lib\\vc_lib;%PYTHON_HOME%\\libs;%OTHER_LIB%</reg_ext_sz>
+"LIBRARY_PATH"=<reg_ext_sz>%LIBS_HOME%\\lib;%LIBS_HOME%\\wxwidgets\\lib\\gcc_lib;%PYTHON_HOME%\\libs;%OTHER_LIB%</reg_ext_sz>
 
-"Path"=<reg_ext_sz>%%VS2008HOME%%\\bin;%%VS2008HOME%%\\PlatformSDK\bin;%%PORTABLE_HOME%%\\bin;%%PORTABLE_HOME%%\\Console2;%%LIBS_HOME%%\\bin;%%PYTHON_HOME%%;%%JC_HOME%%\\bin;%%JAVA_HOME%%\\bin;%%JAVA_HOME%%\\jre\\bin;%%VIM_HOME%%;%%MINGW_HOME%%\\bin;%%WINDBG_HOME%%;%%PYTHON_HOME%%\\Scripts;%%PYTHON_HOME%%\\Tools\\Scripts;%%SVN_HOME%%\\bin;%%PANDOC_HOME%%;%%PRINCE_HOME%%\\Engine\\bin;%%MSYS_HOME%%\\bin;%%DOXYGEN_HOME%%\\bin;%%OTHER_PATH%%</reg_ext_sz>
+"Path"=<reg_ext_sz>%VS2008HOME%\\bin;%VS2008HOME%\\PlatformSDK\bin;%PORTABLE_HOME%\\bin;%PORTABLE_HOME%\\Console2;%LIBS_HOME%\\bin;%PYTHON_HOME%;%JC_HOME%\\bin;%JAVA_HOME%\\bin;%JAVA_HOME%\\jre\\bin;%VIM_HOME%;%MINGW_HOME%\\bin;%WINDBG_HOME%;%PYTHON_HOME%\\Scripts;%PYTHON_HOME%\\Tools\\Scripts;%SVN_HOME%\\bin;%PANDOC_HOME%;%PRINCE_HOME%\\Engine\\bin;%MSYS_HOME%\\bin;%DOXYGEN_HOME%\\bin;%OTHER_PATH%</reg_ext_sz>
