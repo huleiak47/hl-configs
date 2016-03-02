@@ -6,6 +6,7 @@ Windows Registry Editor Version 5.00
 "PYTHON_HOME"="C:\\Python27"
 "MINGW_HOME"="{basedir}\\MinGW"
 "MSYS_HOME"="{basedir}\\msys"
+"GIT_HOME"="{basedir}\\Git"
 "VIM_HOME"="{basedir}\\Vim\\vim74"
 "LIBS_HOME"="{basedir}\\Library"
 "WINDBG_HOME"="{basedir}\\DebuggingToolsforWindowsX86"
@@ -26,4 +27,4 @@ Windows Registry Editor Version 5.00
 "LIBPATH"=<reg_ext_sz>%VS2008HOME%\\lib;%VS2008HOME%\\PlatformSDK\Lib;%VS2008HOME%\\atlmfc\lib;%LIBS_HOME%\\lib;%LIBS_HOME%\\wxwidgets\\lib\\vc_lib;%PYTHON_HOME%\\libs;%OTHER_LIB%</reg_ext_sz>
 "LIBRARY_PATH"=<reg_ext_sz>%LIBS_HOME%\\lib;%LIBS_HOME%\\wxwidgets\\lib\\gcc_lib;%PYTHON_HOME%\\libs;%OTHER_LIB%</reg_ext_sz>
 
-"Path"=<reg_ext_sz>%VS2008HOME%\\bin;%VS2008HOME%\\PlatformSDK\bin;%PORTABLE_HOME%\\bin;%PORTABLE_HOME%\\Console2;%LIBS_HOME%\\bin;%PYTHON_HOME%;%JC_HOME%\\bin;%JAVA_HOME%\\bin;%JAVA_HOME%\\jre\\bin;%VIM_HOME%;%MINGW_HOME%\\bin;%WINDBG_HOME%;%PYTHON_HOME%\\Scripts;%PYTHON_HOME%\\Tools\\Scripts;%SVN_HOME%\\bin;%PANDOC_HOME%;%PRINCE_HOME%\\Engine\\bin;%MSYS_HOME%\\bin;%DOXYGEN_HOME%\\bin;%OTHER_PATH%</reg_ext_sz>
+"Path"=<reg_ext_sz>%VS2008HOME%\\bin;%VS2008HOME%\\PlatformSDK\bin;%PORTABLE_HOME%\\bin;%PORTABLE_HOME%\\Console2;%LIBS_HOME%\\bin;%PYTHON_HOME%;%JC_HOME%\\bin;%JAVA_HOME%\\bin;%JAVA_HOME%\\jre\\bin;%VIM_HOME%;%MINGW_HOME%\\bin;%WINDBG_HOME%;%PYTHON_HOME%\\Scripts;%PYTHON_HOME%\\Tools\\Scripts;%SVN_HOME%\\bin;%PANDOC_HOME%;%PRINCE_HOME%\\Engine\\bin;%GIT_HOME%\\cmd;%GIT_HOME%\\mingw32\\bin;%GIT_HOME%\\usr\\bin;%DOXYGEN_HOME%\\bin;%OTHER_PATH%</reg_ext_sz>
