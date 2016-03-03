@@ -1,6 +1,6 @@
 [core]
 #    gitproxy=https://127.0.0.1:8087
-	autocrlf = input
+	autocrlf = true
 [http]
 	sslVerify = false
 
@@ -19,6 +19,7 @@
     rst = reset
     unstage = reset HEAD --
     last = log -3 HEAD
+    pretty = log --pretty=format:'%h %s' --graph
     df = diff
     mg = merge
     h = help
