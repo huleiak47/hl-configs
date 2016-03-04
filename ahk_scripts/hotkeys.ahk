@@ -93,11 +93,20 @@ GetPath()
     global win_version
     if (win_version > 6.0) ;> windows xp
     {
-        ;ToolbarWindow322保存了格式如：地址: C:\...的文本
-        ControlGetText, Title, ToolbarWindow322, A
+        if (win_version < 6.3)
+        {
+            ;ToolbarWindow322保存了格式如：地址: C:\...的文本
+            ControlTitle := "ToolbarWindow322"
+        }
+        else
+        {
+            ;Windows 10下控件名为ToolbarWindow323
+            ControlTitle := "ToolbarWindow323"
+        }
+        ControlGetText, Text, %ControlTitle%, A
         ;去掉开头的"地址:"
-        Title := RegExReplace(Title, "^地址: |^Address: ")
-        return Title
+        Text := RegExReplace(Text, "^地址: |^Address: ")
+        return Text
     }
     else ;windows xp
     {
@@ -112,6 +121,10 @@ GetPath()
 ^+#w::
     ;在TotalCommander中打开当前文件浏览器对应的目录
     p := GetPath()
+    if (p == "")
+    {
+        return
+    }
     WinClose, A
     run %PORTABLE_HOME%\totalcmd\TOTALCMD.EXE /T /O /P=L /L="%p%"
     return

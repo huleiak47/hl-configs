@@ -18,10 +18,9 @@
     br = branch
     rst = reset
     unstage = reset HEAD --
-    last = log -3 HEAD
+    last = log -5 HEAD
     pretty = log --pretty=format:'%h %s' --graph
     df = diff
     mg = merge
     h = help
-[status]
-    showUntrackedFiles = no
+
