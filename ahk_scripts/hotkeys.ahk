@@ -509,11 +509,24 @@ ReMapKey(orig, new, controlpattern, mousepos)
     +g::ReMapFoxitKey("+g", "{End}")
 #IfWinActive
 
+g_map_acrobat_keys := 1
 ;hotkeys for acrobat XI {{{1
 #IfWinActive ahk_class AcrobatSDIWindow
     ReMapAcrobatKey(orig, new)
     {
-        ReMapKey(orig,new, "AVL_AVView\d+", 1)
+        global g_map_acrobat_keys
+        if (g_map_acrobat_keys == "")
+        {
+            g_map_acrobat_keys := 1
+        }
+        if (g_map_acrobat_keys)
+        {
+            ReMapKey(orig,new, "AVL_AVView\d+", 1)
+        }
+        else
+        {
+            SendInput %orig%
+        }
     }
     j::ReMapAcrobatKey("j", "{Down}")
     k::ReMapAcrobatKey("k", "{Up}")
@@ -534,6 +547,17 @@ ReMapKey(orig, new, controlpattern, mousepos)
     ^k::ReMapAcrobatKey("^k", "^{WheelUp}")
     g::ReMapAcrobatKey("g", "{Home}")
     +g::ReMapAcrobatKey("+g", "{End}")
+    ^F12::
+        global g_map_acrobat_keys
+        if (g_map_acrobat_keys)
+        {
+            g_map_acrobat_keys := 0
+        }
+        else
+        {
+            g_map_acrobat_keys := 1
+        }
+        return
 #IfWinActive
 
 g_map_keys := 1
