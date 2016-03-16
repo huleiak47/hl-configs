@@ -21,6 +21,8 @@
     last = log -5 HEAD
     pretty = log --pretty=format:'%h %s' --graph
     df = diff
+    dt = difftool -y
     mg = merge
     h = help
-
+[diff]
+	tool = gvimdiff
