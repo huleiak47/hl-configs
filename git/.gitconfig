@@ -18,11 +18,15 @@
     br = branch
     rst = reset
     unstage = reset HEAD --
-    last = log -5 HEAD
+    last = log -3 HEAD
     pretty = log --pretty=format:'%h %s' --graph
     df = diff
     dt = difftool -y
     mg = merge
+    tg = tag
+    rb = rebase
     h = help
+    svnup = svn rebase
+    svnci = svn dcommit
 [diff]
 	tool = gvimdiff
