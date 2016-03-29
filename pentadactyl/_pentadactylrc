@@ -1,0 +1,10 @@
+"hg7284
+
+loadplugins '\.(js|penta)$'
+group user
+set cdpath=''
+set guioptions=bCrsBT
+
+set hlfind
+
+" vim: set ft=pentadactyl:
