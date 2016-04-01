@@ -10,5 +10,7 @@ source! "C:\\Users\\hulei\\_vimperatorrc.local"
 
 nmap ,/ :nohlsearch<CR><ESC>
 nmap x :bd -select 'lastactive'<CR>
+nmap s :open google 
+nmap S :tabopen google 
 
 " vim: set ft=vimperator:
