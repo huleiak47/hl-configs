@@ -740,17 +740,13 @@ IfWinExist, Lingoes 灵格斯
 {
     WinActivate
 }
-IfWinExist, Lingoes 灵格斯
-{
-    WinActivate
-}
 return
 
 ^+#c::
     SendInput ^!+{F6}
-    Sleep 100
+    Sleep 200
     SendInput ^c
-    Sleep 100
+    Sleep 200
     SendInput ^!+{F6}
 return
 
