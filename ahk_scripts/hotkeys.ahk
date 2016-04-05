@@ -66,20 +66,6 @@ return
 ;everything
 ^+#f::run %PORTABLE_HOME%\Everything\Everything.exe, %HOME%
 
-;open emacs
-^+#e::
-id := WinExist("ahk_class Emacs")
-if id
-{
-    WinShow
-    WinActivate
-}
-else
-{
-    run runemacs.exe, %HOME%
-}
-return
-
 ;hotkeys for beyond compare {{{1
 ^+#k::run %PORTABLE_HOME%\BeyondCompare\BCompare.exe, %HOME%
 
@@ -166,9 +152,6 @@ return
 ;cmdex
 ^+#d::run Console.exe, %HOME%
 
-;reset explorer
-^+#r::run tskill explorer, %HOME%
-
 ;gvim
 ^+#g::
 run gvim.exe, %HOME%
@@ -199,27 +182,19 @@ return
 ;LAlt & `::ShiftAltTab
 
 ;hotkeys for Evernote {{{1
-#e::
-if SwitchWindow("ahk_class ENMainFrame")
-{
-    Send #+f
-}
-return
-;hotkeys for WizNote {{{1
 ;#e::
-;if SwitchWindow("ahk_class WizNoteMainFrame")
+;if SwitchWindow("ahk_class ENMainFrame")
 ;{
     ;Send #+f
 ;}
 ;return
-
 ;hotkeys for WizNote {{{1
-;#e::
-;if SwitchWindow("ahk_class WizNoteMainFrame")
-;{
+#e::
+if SwitchWindow("ahk_class WizNoteMainFrame")
+{
     Send #+f
-;}
-;return
+}
+return
 
 ;hotkeys for TotalCommander {{{1
 #w::
