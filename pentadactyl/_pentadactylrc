@@ -7,4 +7,7 @@ set guioptions=bCrsBT
 
 set hlfind
 
+vmap <C-c> Y
+nmap <C-c> Y
+
 " vim: set ft=pentadactyl:
