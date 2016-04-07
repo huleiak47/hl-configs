@@ -6,6 +6,7 @@ set cdpath=''
 set guioptions=bCrsBT
 
 set hlfind
+set visualbell
 
 vmap <C-c> Y
 nmap <C-c> Y
