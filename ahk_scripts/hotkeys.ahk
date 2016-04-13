@@ -419,18 +419,19 @@ return
     ^l::SendInput shell cls{Enter}
 #IfWinActive .*gdb.* ahk_class ConsoleWindowClass
     ESC::SendInput ^u^k
-    ^v::SendInput !{Space}ep
-#IfWinActive .*gdb.* ahk_class Console_2_Main
-    ESC::SendInput ^u
-    ^v::SendInput +{Insert}
     ^BS::SendInput ^w
-;program use (py)readline  {{{2
-#IfWinActive .*(- CMDEX|- ipython|gdb|jcdbg|pdb).* ahk_class ConsoleWindowClass
-    ^v::SendInput ^v
     ^p::SendInput ^p
     ^n::SendInput ^n
+#IfWinActive .*gdb.* ahk_class Console_2_Main
+    ESC::SendInput ^u^k
+    ^v::SendInput +{Insert}
     ^BS::SendInput ^w
-    ^Del::SendInput !d
+    ^p::SendInput ^p
+    ^n::SendInput ^n
+;cmdex {{{2
+#IfWinActive .*(- CMDEX) ahk_class(ConsoleWindowClass|Console_2_Main)
+    ^BS::SendInput ^w
+    ESC::SendInput ^u^k
 ;normal console {{{2
 #IfWinActive .*(?<!VIM)$ ahk_class ConsoleWindowClass
     ^v::SendInput !{Space}ep
