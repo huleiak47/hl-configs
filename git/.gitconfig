@@ -1,9 +1,5 @@
 [core]
-#    gitproxy=https://127.0.0.1:8087
 	autocrlf = true
-[http]
-	sslVerify = false
-
 [user]
 	email = huleiak47@gmail.com
 	name = Hu Lei
@@ -30,3 +26,7 @@
     svnci = svn dcommit
 [diff]
 	tool = gvimdiff
+[http "https://github.com"]
+	proxy = socks5://127.0.0.1:1080
+[http "http://github.com"]
+	proxy = socks5://127.0.0.1:1080
