@@ -410,7 +410,7 @@ return
 
 ;hotkeys for console {{{1
 ;debuggers {{{2
-#IfWinActive .*(gdb|jcdbg|pdb).* ahk_class (ConsoleWindowClass|Console_2_Main)
+#IfWinActive .*(gdb|pdb).* ahk_class (ConsoleWindowClass|Console_2_Main)
     F9::SendInput b{Enter}
     F10::SendInput n{Enter}
     F11::SendInput s{Enter}
