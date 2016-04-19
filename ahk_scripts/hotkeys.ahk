@@ -73,8 +73,8 @@ return
 ^+#n::run notepad2.exe, %HOME%
 
 ;map CapsLock to Ctrl {{{1
-CapsLock::Ctrl
-RAlt::CapsLock
+;CapsLock::Ctrl
+;RAlt::CapsLock
 
 
 #IfWinActive ahk_class CabinetWClass
