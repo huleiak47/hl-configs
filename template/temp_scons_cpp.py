@@ -64,7 +64,7 @@ if USE_WXWIDGETS:
 
 DFT_LIBS = ["", "", ""]
 if USE_WXWIDGETS:
-    DFT_LIBS[0] += " wxmsw30u wxmsw30u_gl wxexpat wxjpeg wxpng wxregexu wxscintilla wxtiff wxzlib kernel32 user32 gdi32 comctl32 comdlg32 advapi32 uuid shell32 ole32 oleaut32 odbc32 winspool rpcrt4"
+    DFT_LIBS[0] += " wxmsw31u wxmsw31u_gl wxexpat wxjpeg wxpng wxregexu wxscintilla wxtiff wxzlib version kernel32 user32 gdi32 comctl32 comdlg32 advapi32 uuid shell32 ole32 oleaut32 odbc32 winspool rpcrt4 shlwapi"
 
 ## MSVC config ##
 if TOOLSET == "msvc":
@@ -75,7 +75,7 @@ if TOOLSET == "msvc":
         DFT_CCFLAGS[0] += " /we4013 /we4700 /we4701 /we4715 /we4716 /we4098 /we4020 /we4029"
     DFT_CFLAGS = ["", "", ""]
     DFT_CXXFLAGS = ["/Zc:forScope", "", ""]
-    if MSVC_VER in ["10.0", "11.0", "12.0", "13.0"]:
+    if MSVC_VER in ["10.0", "11.0", "12.0", "13.0", "14.0"]:
         DFT_CXXFLAGS[0] += " /Zc:auto"
     if RTTI:
         DFT_CXXFLAGS[0] += " /GR"
@@ -246,7 +246,7 @@ for env in [debug_env, release_env]:
     objs = {}
     for sf in sourcefiles:
         if path.splitext(sf)[1].lower() == ".rc":
-            args = path.join(TMP_PATH, env["NAME"], sf + env["OBJSUFFIX"]), sf
+            args = path.join(TMP_PATH, env["NAME"], path.basename(sf) + env["OBJSUFFIX"]), sf
             objs[sf] = env.RES(*args)
         elif path.splitext(sf)[1].lower() == ".def":
             objs[sf] = sf
