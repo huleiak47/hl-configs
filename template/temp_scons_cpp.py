@@ -340,7 +340,7 @@ flags = [
             printflag("-D{}".format(DEF))
         for INC in INC_PATH:
             printflag("-I")
-            printflag(INC)
+            printflag(os.path.relpath(os.path.abspath(INC), start=YCMPATH))
         if is_cpp:
             printflag("-x")
             printflag("c++")
@@ -449,7 +449,7 @@ def FlagsForFile(filename, **kwargs):
 
 if YCM:
     ycm_config = Command(
-        "./.ycm_extra_conf.py",
+        os.path.join(YCMPATH, ".ycm_extra_conf.py"),
         "./SConstruct",
         make_ycm_config
         )
