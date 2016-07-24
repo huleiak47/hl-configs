@@ -33,6 +33,7 @@ arg("USE_C99", 1)       # use C99, else use C89, for gcc C file only
 arg("USE_CXX11", 1)     # use C++11, else use C++98/03, for gcc C++ file only
 arg("CLANG_COMP", 1)    # use "scons clang" command to generate .clang_complete file
 arg("YCM", 1)           # use "scons ycm" command to generate .ycm_extra_conf.py file
+arg("YCMPATH", "")     # set the path of .ycm_exra_conf.py
 arg("INSTALL", "")      # If set, the install path must have three subdir: bin, include, lib. If DEST_TYPE is 1 or 2, the files in ./include will copy to {INSTALL}/include
 arg("UPX", 0)           # use upx to compress dest file when install
 arg("MSVC_VER", "")     # set msvc version, 9.0 for vs2008, 10.0 for vs2010, 11.0 for vs2012 etc. Use the highest version of msvc in the system if empty.
