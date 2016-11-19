@@ -5,7 +5,7 @@ def arg(name, default):
     globals()[name] = type(default)(ARGUMENTS.get(name, default))
     return globals()[name]
 
-arg("TOOLSET"   , "gcc")  # "gcc" or "msvc"
+arg("TOOLSET"   , "gcc")  # "gcc" or "msvc" or "llvm"
 arg("DEST_NAME" , "demo")
 arg("DEST_TYPE" , 0)      # "program" = 0   , "sharedlib" = 1 , "staticlib" = 2
 arg("BIN_PATH"  , "bin")
@@ -57,6 +57,13 @@ else:
         MSVC_VERSION           = MSVC_VER,
         TARGET_ARCH            = "x86",
         )
+
+if TOOLSET == "llvm":
+    base_env["CC"] = "clang-cl",
+    base_env["LINK"] = "lld-link"
+    base_env["DLIB"] = 'llvm-lib'
+
+
 MSVC_VER = base_env.get("MSVC_VERSION", "")
 
 DFT_CPPDEFINES     = ["WINVER=0x0501 _WIN32_WINNT=0x0501 WIN32_LEAN_AND_MEAN=1", "", "NDEBUG"]
@@ -95,6 +102,30 @@ if TOOLSET == "msvc":
         DFT_LINKFLAGS[0] += " /SUBSYSTEM:CONSOLE"
         if MSVC_VER == "11.0": DFT_LINKFLAGS[0] += ",5.01"
     DFT_RCFLAGS = ""
+
+## LLVM config ##
+if TOOLSET == "llvm":
+    DFT_CCFLAGS = ["/nologo /Y- /Oy- /W4 /Zc:wchar_t /GF /MD /wd4996 /wd4819 /Zi /Fa${RMEXT(TARGET)}.asm /FA -fms-compatibility -fms-extensions", "/Od", "/O2"] #
+    if STRICT:
+        DFT_CCFLAGS[0] += " -Werror=implicit-function-declaration -Werror=return-type -Werror=return-stack-address -Werror=uninitialized -Werror=delete-non-virtual-dtor"
+    DFT_CFLAGS = ["", "", ""]
+    DFT_CXXFLAGS = ["", "", ""]
+    if RTTI:
+        DFT_CXXFLAGS[0] += " /GR"
+    else:
+        DFT_CXXFLAGS[0] += " /GR-"
+    if EXCEPTION:
+        DFT_CXXFLAGS[0] += " /EHsc"
+    else:
+        DFT_CXXFLAGS[0] += " /EHsc-"
+
+    DFT_LINKFLAGS = ["/nologo /DEBUG ", "", ""]
+    if DEST_TYPE == 0 and GUI:
+        DFT_LINKFLAGS[0] += " /SUBSYSTEM:WINDOWS"
+    elif DEST_TYPE == 0:
+        DFT_LINKFLAGS[0] += " /SUBSYSTEM:CONSOLE"
+    DFT_RCFLAGS = ""
+
 
 ## GCC config ##
 if TOOLSET == "gcc":
@@ -147,7 +178,7 @@ def _rmext(filepath):
 
 base_env.Append(
     RMEXT                  = _rmext,
-    WINDOWS_EMBED_MANIFEST = (0 if TOOLSET != 'msvc' or MSVC_VER not in ["7.0", "7.1", "8.0", "9.0"] else 1),
+    WINDOWS_EMBED_MANIFEST = (0 if TOOLSET not in ['msvc', 'llvm'] or MSVC_VER not in ["7.0", "7.1", "8.0", "9.0"] else 1),
     CPPPATH                = INC_PATH,
     CPPDEFINES             = Split(CPPDEFINES[0]) + Split(DFT_CPPDEFINES[0]),
     CCFLAGS                = Split(CCFLAGS[0]) + Split(DFT_CCFLAGS[0]),
@@ -339,9 +370,12 @@ flags = [
     '-DNDEBUG',"""
         for DEF in debug_env["CPPDEFINES"]:
             printflag("-D{}".format(DEF))
+        for INC in os.environ.get("INCLUDE", "").split(";"):
+            printflag("-isystem")
+            printflag(INC.replace("\\", "/"))
         for INC in INC_PATH:
             printflag("-I")
-            printflag(os.path.relpath(os.path.abspath(INC), start=YCMPATH))
+            printflag(os.path.relpath(os.path.abspath(INC), start=YCMPATH).replace("\\", "/"))
         if is_cpp:
             printflag("-x")
             printflag("c++")
