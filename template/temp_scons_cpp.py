@@ -365,7 +365,6 @@ import ycm_core
 flags = [
     '-Wall',
     '-Wextra',
-    '-Werror',
     '-fexceptions',
     '-DNDEBUG',"""
         for DEF in debug_env["CPPDEFINES"]:

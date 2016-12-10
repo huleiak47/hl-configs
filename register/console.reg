@@ -4,6 +4,7 @@ Windows Registry Editor Version 5.00
 "00"="Bitstream Vera Sans Mono"
 "0"="Consolas"
 "000"="FixedSys"
+"936"="*ÐÂËÎÌå"
 
 [HKEY_CURRENT_USER\Console]
 "CodePage"=dword:000003a8
@@ -35,8 +36,8 @@ Windows Registry Editor Version 5.00
 "NumberOfHistoryBuffers"=dword:00000800
 "PopupColors"=dword:000000f5
 "QuickEdit"=dword:00000000
-"ScreenBufferSize"=dword:400000b0
+"ScreenBufferSize"=dword:40000078
 "ScreenColors"=dword:00000007
-"WindowSize"=dword:003000b0
+"WindowSize"=dword:00300078
 "CodePage"=dword:000003a8
 "CurrentPage"=dword:00000001

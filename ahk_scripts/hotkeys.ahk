@@ -180,7 +180,10 @@ return
 
 ;taskmgr, windows7的Ctrl+Alt+Del不再弹出任务管理器
 ;这里使用Process Explorer代替系统的任务管理器
-^+#Ins::run %PORTABLE_HOME%\SysinternalsSuite\procexp.exe
+^+#Ins::
+run %PORTABLE_HOME%\SysinternalsSuite\procexp.exe, , , NewPID
+Process, priority, %NewPID%, High
+return
 
 ;使用Alt-`来反向切换程序
 ;LAlt & `::ShiftAltTab
@@ -205,7 +208,37 @@ return
 Process, Exist, TOTALCMD.EXE
 if ErrorLevel = 0
 {
-    run %PORTABLE_HOME%\totalcmd\TOTALCMD.EXE, %HOME%, Max
+    run %PORTABLE_HOME%\totalcmd\TOTALCMD.EXE
+    WinWait, ahk_class TNASTYNAGSCREEN, , 3
+    if ErrorLevel = 0
+    {
+        WinActivate, ahk_class TNASTYNAGSCREEN
+        ControlGetText, Var, TPanel2, ahk_class TNASTYNAGSCREEN
+        while Var = ""
+        {
+            ControlGetText, Var, TPanel2, ahk_class TNASTYNAGSCREEN
+        }
+        while 1
+        {
+            IfWinNotActive, ahk_class TNASTYNAGSCREEN
+            {
+                break
+            }
+            if Var = 1
+            {
+                ControlClick, TButton3, ahk_class TNASTYNAGSCREEN
+            }
+            if Var = 2
+            {
+                ControlClick, TButton2, ahk_class TNASTYNAGSCREEN
+            }
+            if Var = 3
+            {
+                ControlClick, TButton1, ahk_class TNASTYNAGSCREEN
+            }
+            Sleep, 100
+        }
+    }
 }
 else
 {
@@ -316,6 +349,26 @@ return
 
 ^+#WheelRight::
 MoveWindow(1)
+return
+
+;移动窗口到左上角
+#Home::
+WinMove, A, , 0, 0, A_ScreenWidth/2, (A_ScreenHeight-30)/2
+return
+
+;移动窗口到左下角
+#End::
+WinMove, A, , 0, (A_ScreenHeight-30)/2, A_ScreenWidth/2, (A_ScreenHeight-30)/2
+return
+
+;移动窗口到右上角
+#PgUp::
+WinMove, A, , A_ScreenWidth/2, 0, A_ScreenWidth/2, (A_ScreenHeight-30)/2
+return
+
+;移动窗口到右下角
+#PgDn::
+WinMove, A, , A_ScreenWidth/2, (A_ScreenHeight-30)/2, A_ScreenWidth/2, (A_ScreenHeight-30)/2
 return
 
 ;增加不透明度
@@ -770,7 +823,7 @@ ListTopWindows(shiftdown)
     Gui, Font, s9, Simson
     Gui, Font, s9, Microsoft YaHei
     Gui +ToolWindow +HwndMyGuiHwnd +AlwaysOnTop
-    Gui, Add, ListView, Report Grid -Multi ReadOnly NoSort r30 w1000, Icon|Index|Process|Title|CLass|ID
+    Gui, Add, ListView, Report Grid -Multi ReadOnly NoSort r30 w1000, Icon|Index|Title|Process|CLass|ID
     Gui +Resize
     Gui, Hide
 
@@ -815,7 +868,7 @@ ListTopWindows(shiftdown)
             }
             WinGetClass, Class, ahk_id %id%
 
-            LV_Add("Icon" . imgidx, "", Index, Process, Title, Class, id)
+            LV_Add("Icon" . imgidx, "", Index, Title, Process, Class, id)
             Index += 1
         }
         LV_ModifyCol()
@@ -970,4 +1023,3 @@ ListWindowsSysKeyDown(wParam, lParam)
 
 !Tab::ListTopWindows(0)
 !`::ListTopWindows(1)
-
