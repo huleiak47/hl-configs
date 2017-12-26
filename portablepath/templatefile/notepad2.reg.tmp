@@ -4,10 +4,111 @@ Windows Registry Editor Version 5.00
 [HKEY_CLASSES_ROOT\*\shell]
 
 [HKEY_CLASSES_ROOT\*\shell\notepad2]
-@="ç”¨ Notepad2 ç¼–è¾‘"
+@="ÓÃ Notepad2 ±à¼­"
 
 [HKEY_CLASSES_ROOT\*\shell\notepad2\command]
 @="\"{basedir}\\bin\\Notepad2.exe\" \"%1\""
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\notepad.exe]
 "Debugger"="\"{basedir}\\bin\\Notepad2.exe\" /z"
+
+
+;-------text file------------
+[HKEY_CLASSES_ROOT\Text.File]
+@="Text.File"
+
+[HKEY_CLASSES_ROOT\Text.File\DefaultIcon]
+@="\"{basedir}\\bin\\notepad2.exe\",0"
+
+[HKEY_CLASSES_ROOT\Text.File\shell]
+
+[HKEY_CLASSES_ROOT\Text.File\shell\open]
+
+[HKEY_CLASSES_ROOT\Text.File\shell\open\command]
+@="\"{basedir}\\bin\\notepad2.exe\" \"%1\""
+
+;--------file-------------
+[HKEY_CLASSES_ROOT\.vim]
+@="Text.File"
+"Content Type"="text/plain"
+
+[HKEY_CLASSES_ROOT\.c]
+@="Text.File"
+"Content Type"="text/plain"
+
+[HKEY_CLASSES_ROOT\.cpp]
+@="Text.File"
+"Content Type"="text/plain"
+
+[HKEY_CLASSES_ROOT\.cxx]
+@="Text.File"
+"Content Type"="text/plain"
+
+[HKEY_CLASSES_ROOT\.cc]
+@="Text.File"
+"Content Type"="text/plain"
+
+[HKEY_CLASSES_ROOT\.h]
+@="Text.File"
+"Content Type"="text/plain"
+
+[HKEY_CLASSES_ROOT\.hpp]
+@="Text.File"
+"Content Type"="text/plain"
+
+[HKEY_CLASSES_ROOT\.hxx]
+@="Text.File"
+"Content Type"="text/plain"
+
+[HKEY_CLASSES_ROOT\.hh]
+@="Text.File"
+"Content Type"="text/plain"
+
+[HKEY_CLASSES_ROOT\.txt]
+@="Text.File"
+"Content Type"="text/plain"
+
+[HKEY_CLASSES_ROOT\.ini]
+@="Text.File"
+"Content Type"="text/plain"
+
+[HKEY_CLASSES_ROOT\.log]
+@="Text.File"
+"Content Type"="text/plain"
+
+[HKEY_CLASSES_ROOT\.java]
+@="Text.File"
+"Content Type"="text/plain"
+
+[HKEY_CLASSES_ROOT\.cs]
+@="Text.File"
+"Content Type"="text/plain"
+
+[HKEY_CLASSES_ROOT\.xml]
+@="Text.File"
+"Content Type"="text/plain"
+
+[HKEY_CLASSES_ROOT\.asm]
+@="Text.File"
+"Content Type"="text/plain"
+
+[HKEY_CLASSES_ROOT\.a51]
+@="Text.File"
+"Content Type"="text/plain"
+
+[HKEY_CLASSES_ROOT\.mak]
+@="Text.File"
+"Content Type"="text/plain"
+
+[HKEY_CLASSES_ROOT\.vprj]
+@="Text.File"
+"Content Type"="text/plain"
+
+[HKEY_CLASSES_ROOT\.tex]
+@="Text.File"
+"Content Type"="text/plain"
+
+[HKEY_CLASSES_ROOT\.md]
+@="Text.File"
+"Content Type"="text/plain"
+

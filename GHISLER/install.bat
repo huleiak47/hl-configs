@@ -1,6 +1,11 @@
-@echo off
 
-if not exist %APPDATA%\GHISLER mkdir %APPDATA%\GHISLER
+set CONFDIR=%APPDATA%\GHISLER
 
-cp wincmd.ini %APPDATA%\GHISLER\wincmd.ini
-cp usercmd.ini %APPDATA%\GHISLER\usercmd.ini
+if not exist %CONFDIR% mkdir %CONFDIR%
+if exist %CONFDIR%\WINCMD.INI del %CONFDIR%\WINCMD.INI
+mklink %CONFDIR%\WINCMD.INI %~dp0WINCMD.INI
+if %ERRORLEVEL% NEQ 0 cp %~dp0WINCMD.INI %CONFDIR%
+
+if exist %CONFDIR%\usercmd.ini del %CONFDIR%\usercmd.ini
+mklink %CONFDIR%\usercmd.ini %~dp0usercmd.ini
+if %ERRORLEVEL% NEQ 0 cp %~dp0usercmd.ini %CONFDIR%
