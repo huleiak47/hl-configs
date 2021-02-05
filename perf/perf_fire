@@ -1,0 +1,125 @@
+#!/usr/bin/env python3
+# -*- coding:utf-8 -*-
+"""
+perf a process and generate firegraph.
+"""
+
+import sys
+import signal
+import subprocess as sp
+import time
+from pathlib import Path
+
+import fire
+import psutil
+
+
+def match_pattern(pattern, cmdline):
+    if "perf_fire" in cmdline and cmdline.startswith("python"):
+        return False
+    if cmdline.startswith("sudo "):
+        return False
+    return pattern in cmdline
+
+
+def find_process_id(pattern):
+    if isinstance(pattern, int):
+        pid = pattern
+        if psutil.pid_exists(pid):
+            return pid
+        return None
+
+    procs = [proc for proc in psutil.process_iter() if match_pattern(pattern, " ".join(proc.cmdline()))]
+    if len(procs) == 0:
+        return None
+
+    for i, proc in enumerate(procs):
+        print("%d: \t%d, \t%s" % (i + 1, proc.pid, ' '.join(proc.cmdline())))
+    print('-' * 60)
+    index = int(input("Input you selection: "))
+    if index <= 0 or index > len(procs):
+        return None
+    return procs[index - 1].pid
+
+
+def perf_process(pid, sec, freq, callgraph, event):
+    perf_cmd = [
+        "perf",
+        "record",
+        '-e',
+        event,
+        "-F",
+        str(freq),
+        "-g",
+        "--call-graph",
+        callgraph,
+        '-p',
+        str(pid),
+    ]
+
+    print(">", " ".join(perf_cmd))
+    p = sp.Popen(perf_cmd)
+    start = time.time()
+    try:
+        while 1:
+            time.sleep(0.1)
+            now = time.time()
+            ret = p.poll()
+            if ret is not None:
+                # process terminated
+                break
+            elif sec != 0 and now - start >= sec:
+                break
+    except KeyboardInterrupt:
+        pass
+    # terminate perf
+    if p.poll() is None:
+        p.send_signal(signal.SIGINT)
+        while p.poll() is None:
+            pass
+    time.sleep(0.1)
+
+
+def main(pattern: (int, str),
+         sec: int = 5,
+         freq: int = 9999,
+         callgraph: str = "dwarf",
+         event: str = "cycles",
+         out: str = "out.svg"):
+    """
+    perf a process and generate firegraph.
+    pattern: process id if this is a integer, or search processes which name matchs pattern.
+    sec: perf time in seconds, if sec is 0, wait until the dest process terminated
+    freq: sample frequence
+    callgraph: perf call-graph style, fp, dwarf or lbr, dwarf is better
+    event: event to sample, can be cpu-clock, cache-misses ...
+    out: out svg file name
+    """
+    try:
+        pid = find_process_id(pattern)
+    except KeyboardInterrupt:
+        pid = None
+
+    if pid is None:
+        print("Have not select any process.")
+        sys.exit(1)
+    proc = psutil.Process(pid)
+    print("Select process %d: %s" % (proc.pid, ' '.join(proc.cmdline())))
+
+    data_file = Path("./perf.data")
+    if not data_file.exists():
+        mtime1 = 0
+    else:
+        mtime1 = data_file.stat().st_mtime_ns
+    perf_process(pid, sec, freq, callgraph, event)
+    if not data_file.exists() or data_file.stat().st_mtime_ns == mtime1:
+        print("Have not generated perf.data")
+        sys.exit(2)
+
+    cmd = "perf script | stackcollapse-perf.pl | flamegraph.pl > %s" % out
+    print(">", cmd)
+    sp.run(cmd, shell=True)
+
+
+if __name__ == "__main__":
+    fire.Fire(main)
