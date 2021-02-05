@@ -18,13 +18,13 @@ warnings.filterwarnings("ignore")
 
 # -------------------config ------------------------------------#
 
-SSH_REMOTE_IP = "10.44.244.57"
+SSH_REMOTE_IP = ""
 SSH_REMOTE_PORT = 22
-SSH_USER = "hulei"
-SSH_PASSWD = "19850923"
+SSH_USER = ""
+SSH_PASSWD = ""
 
 LOCAL_DIR = "."
-REMOTE_DIR = "/home/hulei/projects/FSPV2"
+REMOTE_DIR = ""
 FILE_IGNORE = [".sync*", ".ycm_*", ".vprj", ".vscode", "*.py1.stats"]
 
 BUILD_CMD = "cd build && cmake .. -DBUILD_TESTS=ON && make -j48"
