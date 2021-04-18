@@ -1,0 +1,3 @@
+--langdef=md
+--langmap=md:.md
+--regex-md=/^(#+[ \t]+.*)/\1/h,Headings/

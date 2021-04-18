@@ -5,17 +5,18 @@
   // modify your style here
   // eg: background-color: blue;
   /*background-color: #fef5d8;*/
-  font-family: "Times New Roman", "Noto Serif CJK SC", NSimSun, serif;
+  font-family: "Times New Roman", "思源宋体", NSimSun, serif;
   line-height: 1.5em;
 
   svg {
     max-width: 100%;
+    width: unset !important;
+    height: unset !important;
   }
   pre,
   code {
     font-family: "Sarasa Term SC", Consolas, monospace;
     white-space: pre-wrap;
-    /*font-family: "Courier New", Consolas, monospace;*/
   }
 
   pre[data-role="codeBlock"] {
@@ -43,34 +44,39 @@
     text-indent: 2em;
   }
 
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "思源黑体", YaHei, sans-serif;
+  }
+  h1 {
+    text-align: center;
+  }
+  /*
   h1 {
     counter-reset: counter_h2;
-    font-family: "Noto Sans CJK SC", YaHei, sans-serif;
-    text-align: center;
   }
   h2 {
     counter-increment: counter_h2;
     counter-reset: counter_h3;
-    font-family: "Noto Sans CJK SC", YaHei, sans-serif;
   }
   h3 {
     counter-increment: counter_h3;
     counter-reset: counter_h4;
-    font-family: "Noto Sans CJK SC", YaHei, sans-serif;
   }
   h4 {
     counter-increment: counter_h4;
     counter-reset: counter_h5;
-    font-family: "Noto Sans CJK SC", YaHei, sans-serif;
   }
   h5 {
     counter-increment: counter_h5;
     counter-reset: counter_h6;
-    font-family: "Noto Sans CJK SC", YaHei, sans-serif;
   }
   h6 {
     counter-increment: counter_h6;
-    font-family: "Noto Sans CJK SC", YaHei, sans-serif;
   }
 
   h2::before {
@@ -91,4 +97,5 @@
     content: counter(counter_h2) "." counter(counter_h3) "." counter(counter_h4)
       "." counter(counter_h5) "." counter(counter_h6) " ";
   }
+  */
 }
