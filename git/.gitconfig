@@ -1,5 +1,6 @@
 [core]
-	autocrlf = true
+	autocrlf = input
+	#safecrlf = true
 [user]
 	email = huleiak47@gmail.com
 	name = James Hu

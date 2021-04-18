@@ -3,6 +3,7 @@
 
 import sys
 import os
+import re
 import subprocess as sp
 from pathlib import Path
 
@@ -10,7 +11,15 @@ line = open(sys.argv[1]).readline().strip()
 
 cols = line.split("\t")
 
-file = Path(cols[3]) / cols[0]
+name = cols[0]
+for col in cols[1:]:
+    if re.match(r"^[A-Z]:\\.*", col):
+        path = col
+        break
+else:
+    raise Exception("Cannot find path")
+
+file = Path(path) / name
 
 if file.is_file():
     sp.Popen(["gvim.exe", str(file)])

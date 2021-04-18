@@ -3,6 +3,11 @@
 
 RegRead, win_version, HKEY_LOCAL_MACHINE, SOFTWARE\microsoft\Windows NT\CurrentVersion, CurrentVersion
 
+BASH_CMD := "C:\Windows\WinSxS\amd64_microsoft-windows-lxss-bash_31bf3856ad364e35_10.0.18362.239_none_95822ecb4e202f44\bash.exe"
+;BASH_CMD := "cmd /c wsl -- "
+
+CMD_RUN := "wt.exe"
+
 ;1: A window's title must start with the specified WinTitle to be a match.
 ;2: A window's title can contain WinTitle anywhere inside it to be a match.
 ;3: A window's title must exactly match WinTitle to be a match.
@@ -47,24 +52,48 @@ SwitchWindow(title)
     return 0
 }
 
-~LShift & WheelUp::  ; 向左滚动.
-ControlGetFocus, fcontrol, A
-Loop 3  ; <-- 增加这个值来加快滚动速度.
-    SendMessage, 0x114, 0, 0, %fcontrol%, A  ; 0x114 是 WM_HSCROLL, 它后面的 0 是 SB_LINELEFT.
-return
+CloseTotalCmdRegisterWindow()
+{
+    WinWait, ahk_class TNASTYNAGSCREEN, , 8
+    if (ErrorLevel != 0)
+    {
+        return
+    }
 
-~LShift & WheelDown::  ; 向右滚动.
-ControlGetFocus, fcontrol, A
-Loop 3  ; <-- 增加这个值来加快滚动速度.
-    SendMessage, 0x114, 1, 0, %fcontrol%, A  ; 0x114 是 WM_HSCROLL, 它后面的 1 是 SB_LINERIGHT.
-return
+    count := 0
+    while 1
+    {
+        ControlGetText, OutputVar, TPanel2, ahk_class TNASTYNAGSCREEN
 
-;command
-^+#p::run cmd.exe, %HOME%
+        if (OutputVar == "1" || OutputVar == "2" || OutputVar == "3")
+        {
+            SendInput %OutputVar%
+            break
+        }
+        Sleep 100
+        count := count + 1
+        if (count >= 50)
+        {
+            break
+        }
+    }
+}
+
+;~LShift & WheelUp::  ; 向左滚动.
+;ControlGetFocus, fcontrol, A
+;Loop 3  ; <-- 增加这个值来加快滚动速度.
+    ;SendMessage, 0x114, 0, 0, %fcontrol%, A  ; 0x114 是 WM_HSCROLL, 它后面的 0 是 SB_LINELEFT.
+;return
+
+;~LShift & WheelDown::  ; 向右滚动.
+;ControlGetFocus, fcontrol, A
+;Loop 3  ; <-- 增加这个值来加快滚动速度.
+    ;SendMessage, 0x114, 1, 0, %fcontrol%, A  ; 0x114 是 WM_HSCROLL, 它后面的 1 是 SB_LINERIGHT.
+;return
 
 ;hotkeys for everything {{{1
 ;everything
-^+#f::run %PORTABLE_HOME%\Everything\Everything.exe, %HOME%
+^+#f::run %HOME%\scoop\apps\everything\current\Everything.exe, %HOME%
 
 ;hotkeys for beyond compare {{{1
 ^+#k::run %PORTABLE_HOME%\BeyondCompare\BCompare.exe, %HOME%
@@ -77,37 +106,72 @@ return
 ;RAlt::CapsLock
 
 
-#IfWinActive ahk_class CabinetWClass
 GetPath()
 {
     global win_version
-    if (win_version > 6.0) ;> windows xp
+    if WinActive("ahk_class CabinetWClass")
     {
-        if (win_version < 6.3)
+        if (win_version > 6.0) ;> windows xp
         {
-            ;ToolbarWindow322保存了格式如：地址: C:\...的文本
-            ControlTitle := "ToolbarWindow322"
+            if (win_version < 6.3)
+            {
+                ;ToolbarWindow322保存了格式如：地址: C:\...的文本
+                ControlTitle := "ToolbarWindow322"
+            }
+            else
+            {
+                ;Windows 10下控件名为ToolbarWindow323
+                ControlTitle := "ToolbarWindow323"
+            }
+            ControlGetText, Text, %ControlTitle%, A
+            ;去掉开头的"地址:"
+            Text := RegExReplace(Text, "^地址: |^Address: ")
+            return Text
         }
-        else
+        else ;windows xp
         {
-            ;Windows 10下控件名为ToolbarWindow323
-            ControlTitle := "ToolbarWindow323"
+            ControlGetText, Title, ComboBoxEx321, A
+            return Title
         }
-        ControlGetText, Text, %ControlTitle%, A
-        ;去掉开头的"地址:"
-        Text := RegExReplace(Text, "^地址: |^Address: ")
-        return Text
     }
-    else ;windows xp
+    if WinActive("ahk_class TTOTAL_CMD")
     {
-        ControlGetText, Title, ComboBoxEx321, A
-        return Title
+        Old = %clipboard%
+        SendInput ^1
+        Sleep, 100
+        Ret = %clipboard%
+        clipboard = %Old%
+        return Ret
     }
+    Ret = %HOME%
+    return Ret
+
 }
 ^+#d::
     p := GetPath()
-    run Console.exe, %p%
+    run %CMD_RUN%, %p%
     return
+
+^+#s::
+    p := GetPath()
+
+    ; convert path to linux format like: /mnt/d/...
+    parray := StrSplit(p, ":")
+    root_old := parray[1]
+    path_old := parray[2]
+    StringLower, root, root_old
+    path := StrReplace(path_old, "\", "/")
+    p = /mnt/%root%%path%
+    run %BASH_CMD% -c "cd '%p%' && zsh"
+    return
+
+;powershell
+^+#p::
+    p := GetPath()
+    run powershell.exe, %p%
+    return
+
+#IfWinActive ahk_class CabinetWClass
 ^+#w::
     ;在TotalCommander中打开当前文件浏览器对应的目录
     p := GetPath()
@@ -116,7 +180,16 @@ GetPath()
         return
     }
     WinClose, A
-    run %PORTABLE_HOME%\totalcmd\TOTALCMD.EXE /T /O /P=L /L="%p%"
+    Process, Exist, TOTALCMD.EXE
+    if (ErrorLevel == 0)
+    {
+        run %PORTABLE_HOME%\totalcmd\TOTALCMD.EXE /T /O /P=L /L="%p%"
+        CloseTotalCmdRegisterWindow()
+    }
+    else
+    {
+        run %PORTABLE_HOME%\totalcmd\TOTALCMD.EXE /T /O /P=L /L="%p%"
+    }
     return
 ^1::
     p := GetPath()
@@ -153,9 +226,6 @@ IfMsgBox, No
 DllCall("PowrProf\SetSuspendState", "int", 0, "int", 0, "int", 0)
 return
 
-;cmdex
-^+#d::run Console.exe, %HOME%
-
 ;gvim
 ^+#g::
 run gvim.exe, %HOME%
@@ -170,13 +240,6 @@ return
 ^+#-::
 WinHide, A
 return
-
-;msdn
-^+#m::run "C:\Program Files\Common Files\microsoft shared\Help 9\dexplore.exe" /helpcol ms-help://MS.MSDNQTR.v90.chs  /LaunchNamedUrlTopic DefaultPage, %HOME%
-
-
-;截图工具
-^+#a::sendinput ^{PrintScreen}
 
 ;taskmgr, windows7的Ctrl+Alt+Del不再弹出任务管理器
 ;这里使用Process Explorer代替系统的任务管理器
@@ -204,7 +267,7 @@ if SwitchWindow("ahk_class WizNoteMainFrame")
 return
 
 ;hotkeys for TotalCommander {{{1
-#w::
+^+#w::
 Process, Exist, TOTALCMD.EXE
 if ErrorLevel = 0
 {
@@ -245,6 +308,42 @@ else
     SwitchWindow("ahk_class TTOTAL_CMD")
 }
 return
+
+; em client
+^+#m::
+    IfWinActive, eM Client ahk_exe MailClient.exe
+    {
+        WinMinimize, A
+    }
+    else
+    {
+        Run, C:\Program Files (x86)\eM Client\MailClient.exe
+    }
+return
+
+#IfWinActive, eM Client ahk_exe MailClient.exe
+    #z::WinMinimize, A
+#IfWinActive
+
+; Outlook 2016
+;^+#m::
+    ;IfWinActive, ahk_class rctrl_renwnd32 ahk_exe OUTLOOK.EXE
+    ;{
+        ;WinMinimize, A
+    ;}
+    ;else
+    ;{
+        ;IfWinExist, ahk_class rctrl_renwnd32 ahk_exe OUTLOOK.EXE
+        ;{
+            ;WinActivate, ahk_class rctrl_renwnd32 ahk_exe OUTLOOK.EXE
+        ;}
+        ;else
+        ;{
+            ;Run, C:\Program Files (x86)\Microsoft Office\root\Office16\OUTLOOK.EXE
+        ;}
+    ;}
+;return
+
 
 ;hotkey for Foxmail {{{1
 #q::
@@ -320,36 +419,36 @@ MoveWindow(direct)
 MoveWindow(0)
 return
 
-^+#WheelUp::
-MoveWindow(0)
-return
+;^+#WheelUp::
+;MoveWindow(0)
+;return
 
 ;向下移动窗口
 ^+#DOWN::
 MoveWindow(2)
 return
 
-^+#WheelDown::
-MoveWindow(2)
-return
+;^+#WheelDown::
+;MoveWindow(2)
+;return
 
 ;向左移动窗口
 ^+#LEFT::
 MoveWindow(3)
 return
 
-^+#WheelLeft::
-MoveWindow(3)
-return
+;^+#WheelLeft::
+;MoveWindow(3)
+;return
 
 ;向右移动窗口
 ^+#RIGHT::
 MoveWindow(1)
 return
 
-^+#WheelRight::
-MoveWindow(1)
-return
+;^+#WheelRight::
+;MoveWindow(1)
+;return
 
 ;移动窗口到左上角
 #Home::
@@ -465,28 +564,66 @@ return
 ;最小化窗口
 #x::WinMinimize, A
 
+;;hotkeys for fish {{{1
+#IfWinActive ^fish .* ahk_class ConsoleWindowClass
+    ; selection
+    F2::
+    MouseGetPos, X, Y
+    MouseMove, 24, 16, 0
+    Click
+    SendInput ek
+    MouseMove, %X%, %Y%, 0
+    return
+
+    ^v::
+    MouseMove, 24, 16, 0
+    Click
+    SendInput ep
+    MouseMove, %X%, %Y%, 0
+    return
+
+    MButton::
+    MouseMove, 24, 16, 0
+    Click
+    SendInput ep
+    MouseMove, %X%, %Y%, 0
+    return
+
+    ESC::
+    SendInput ^e^u
+    return
+
+#IfWinActive 选择fish .* ahk_class ConsoleWindowClass
+
+    MButton::
+    SendInput ^c
+    return
+
+#IfWinActive
+
 ;hotkeys for console {{{1
 ;debuggers {{{2
-#IfWinActive .*(gdb|pdb).* ahk_class (ConsoleWindowClass|Console_2_Main)
+#IfWinActive .*(gdb|pdb).* ahk_class (ConsoleWindowClass)
     F9::SendInput b{Enter}
     F10::SendInput n{Enter}
     F11::SendInput s{Enter}
-    F12::SendInput fin{Enter}
-    F5::SendInput c{Enter}
+    +F11::SendInput finish{Enter}
+    F12::SendInput until{Enter}
+    F6::SendInput i ar{Enter}
+    F7::SendInput i lo{Enter}
+    F8::SendInput lf{Enter}
+    F4::SendInput bt{Enter}
+    F3::SendInput i th{Enter}
+    F5::SendInput cont{Enter}
+    +F5::SendInput run{Enter}
     ^l::SendInput shell cls{Enter}
 #IfWinActive .*gdb.* ahk_class ConsoleWindowClass
     ESC::SendInput ^u^k
     ^BS::SendInput ^w
     ^p::SendInput ^p
     ^n::SendInput ^n
-#IfWinActive .*gdb.* ahk_class Console_2_Main
-    ESC::SendInput ^u^k
-    ^v::SendInput +{Insert}
-    ^BS::SendInput ^w
-    ^p::SendInput ^p
-    ^n::SendInput ^n
 ;cmdex {{{2
-#IfWinActive .*(- CMDEX) ahk_class(ConsoleWindowClass|Console_2_Main)
+#IfWinActive .*(- CMDEX) ahk_class(ConsoleWindowClass)
     ^BS::SendInput ^w
     ESC::SendInput ^u^k
 ;normal console {{{2
@@ -496,7 +633,7 @@ return
     ^BS::SendInput ^{Left}^{End}
     ^Del::SendInput ^{Right}^{Home}
     F2::SendInput !{Space}ek
-    ^f::SendInput !{Space}ef
+    ;^f::SendInput !{Space}ef
     ^n::SendInput {Down}
     ^p::SendInput {Up}
     !F4::PostMessage, 16, 0, 0, , A
@@ -540,6 +677,7 @@ ReMapKey(orig, new, controlpattern, mousepos)
     ^k::ReMapFoxitKey("^k", "^{WheelUp}")
     g::ReMapFoxitKey("g", "{Home}")
     +g::ReMapFoxitKey("+g", "{End}")
+    ^+b::ReMapFoxitKey("^+b", "^b")
 #IfWinActive
 
 g_map_acrobat_keys := 1
@@ -593,6 +731,64 @@ g_map_acrobat_keys := 1
         return
 #IfWinActive
 
+g_map_sumatra_keys := 1
+#IfWinActive ahk_class SUMATRA_PDF_FRAME
+    ReMapSumatraKey(orig, new)
+    {
+        global g_map_sumatra_keys
+        if (g_map_sumatra_keys == "")
+        {
+            g_map_sumatra_keys := 1
+        }
+        if (g_map_sumatra_keys)
+        {
+            SendInput %new%
+        }
+        else
+        {
+            SendInput %orig%
+        }
+    }
+    j::ReMapSumatraKey("j", "{Down}{Down}{Down}")
+    k::ReMapSumatraKey("k", "{Up}{Up}{Up}")
+    h::ReMapSumatraKey("h", "{Left}")
+    l::ReMapSumatraKey("l", "{Right}")
+    ^o::ReMapSumatraKey("^o", "!{Left}")  ; forward
+    ^i::ReMapSumatraKey("^i", "!{Right}") ; backward
+    /::ReMapSumatraKey("/", "^f")         ; search
+    n::ReMapSumatraKey("n", "{F3}")
+    p::ReMapSumatraKey("p", "+{F3}")
+    d::ReMapSumatraKey("d", "{PgDn}")
+    e::ReMapSumatraKey("e", "{PgUp}")
+    i::ReMapSumatraKey("i", "^=")         ; zoom in
+    o::ReMapSumatraKey("o", "^-")         ; zoom out
+    g::ReMapSumatraKey("g", "{Home}")     ; goto begin
+    +g::ReMapSumatraKey("+g", "{End}")    ; goto end
+    ^g::ReMapSumatraKey("^g", "^+n")    ; goto page n
+    F2::ReMapSumatraKey("{F2}", "{RButton}l") ; select tool
+    F3::ReMapSumatraKey("{F3}", "{RButton}h") ; hand tool
+    x::ReMapSumatraKey("x", "^w")         ; close tab
+    +e::ReMapSumatraKey("+e", "^+{Tab}")  ; prev tab
+    +r::ReMapSumatraKey("+r", "^{Tab}")   ; next tab
+    ^F12::
+        global g_map_sumatra_keys
+        if (g_map_sumatra_keys)
+        {
+            g_map_sumatra_keys := 0
+            ToolTip, Keymapping is disabled.
+            Sleep, 1000
+            ToolTip
+        }
+        else
+        {
+            g_map_sumatra_keys := 1
+            ToolTip, Keymapping is enabled.
+            Sleep, 1000
+            ToolTip
+        }
+        return
+#IfWinActive
+
 g_map_keys := 1
 ;hotkeys for PDF-XChange Viewer {{{1
 #IfWinActive ahk_class DSUI:PDFXCViewer
@@ -605,7 +801,7 @@ g_map_keys := 1
         }
         if (g_map_keys)
         {
-            ReMapKey(orig,new, "DSUI:PagesView\d+|DSUI:DocFrame\d+", 0)
+            ReMapKey(orig, new, "DSUI:PagesView\d+|DSUI:DocFrame\d+|DSUI:ChildFrame\d+", 0)
         }
         else
         {
@@ -616,64 +812,103 @@ g_map_keys := 1
     k::ReMapXChangeViewerKey("k", "{Up}{Up}{Up}")
     h::ReMapXChangeViewerKey("h", "{Left}")
     l::ReMapXChangeViewerKey("l", "{Right}")
-    +h::ReMapXChangeViewerKey("+h", "!{Left}")
-    +l::ReMapXChangeViewerKey("+l", "!{Right}")
-    ^i::ReMapXChangeViewerKey("^i", "!{Left}")
-    ^o::ReMapXChangeViewerKey("^o", "!{Right}")
-    /::ReMapXChangeViewerKey("/", "^f")
+    ^o::ReMapXChangeViewerKey("^o", "!{Left}")  ; forward
+    ^i::ReMapXChangeViewerKey("^i", "!{Right}") ; backward
+    /::ReMapXChangeViewerKey("/", "^f")         ; search
     n::ReMapXChangeViewerKey("n", "{F3}")
     p::ReMapXChangeViewerKey("p", "+{F3}")
-    ^f::ReMapXChangeViewerKey("^f", "{PgDn}")
-    ^b::ReMapXChangeViewerKey("^b", "{PgUp}")
-    ^d::ReMapXChangeViewerKey("^d", "{PgDn}")
-    ^u::ReMapXChangeViewerKey("^u", "{PgUp}")
-    ^l::ReMapXChangeViewerKey("^l", "^b")
-    ^j::ReMapXChangeViewerKey("^j", "^-")
-    ^k::ReMapXChangeViewerKey("^k", "^=")
-    g::ReMapXChangeViewerKey("g", "{Home}")
-    +g::ReMapXChangeViewerKey("+g", "{End}")
-    F2::ReMapXChangeViewerKey("{F2}", "{RButton}l")
-    F3::ReMapXChangeViewerKey("{F3}", "{RButton}h")
-    x::ReMapXChangeViewerKey("x", "^w")
+    d::ReMapXChangeViewerKey("d", "{PgDn}")
+    e::ReMapXChangeViewerKey("e", "{PgUp}")
+    i::ReMapXChangeViewerKey("i", "^=")         ; zoom in
+    o::ReMapXChangeViewerKey("o", "^-")         ; zoom out
+    g::ReMapXChangeViewerKey("g", "{Home}")     ; goto begin
+    +g::ReMapXChangeViewerKey("+g", "{End}")    ; goto end
+    ^g::ReMapXChangeViewerKey("^g", "^+n")    ; goto page n
+    F2::ReMapXChangeViewerKey("{F2}", "{RButton}l") ; select tool
+    F3::ReMapXChangeViewerKey("{F3}", "{RButton}h") ; hand tool
+    x::ReMapXChangeViewerKey("x", "^w")         ; close tab
+    +e::ReMapXChangeViewerKey("+e", "^+{Tab}")  ; prev tab
+    +r::ReMapXChangeViewerKey("+r", "^{Tab}")   ; next tab
     ^F12::
         global g_map_keys
         if (g_map_keys)
         {
             g_map_keys := 0
+            ToolTip, Keymapping is disabled.
+            Sleep, 1000
+            ToolTip
         }
         else
         {
             g_map_keys := 1
+            ToolTip, Keymapping is enabled.
+            Sleep, 1000
+            ToolTip
         }
         return
 #IfWinActive
 
 ;hotkeys for chm help file explorer {{{1
-#IfWinActive ahk_class HH Parent
-    ReMapHHKey(orig, new)
-    {
-        ReMapKey(orig,new, "Internet Explorer_Server\d+", 1)
-    }
-    j::ReMapHHKey("j", "{Down}")
-    k::ReMapHHKey("k", "{Up}")
-    h::ReMapHHKey("h", "{PgUp}")
-    l::ReMapHHKey("l", "{PgDn}")
-    +h::ReMapHHKey("+h", "!{Left}")
-    +l::ReMapHHKey("+l", "!{Right}")
-    ^i::ReMapHHKey("^i", "!{Left}")
-    ^o::ReMapHHKey("^o", "!{Right}")
-    /::ReMapHHKey("/", "^f")
-    n::ReMapHHKey("n", "{PgDn}")
-    p::ReMapHHKey("p", "{PgUp}")
-    ^f::ReMapHHKey("^f", "{PgDn}")
-    ^b::ReMapHHKey("^b", "{PgUp}")
-    ^d::ReMapHHKey("^d", "{PgDn}")
-    ^u::ReMapHHKey("^u", "{PgUp}")
-    ^j::ReMapHHKey("^j", "^{WheelDown}")
-    ^k::ReMapHHKey("^k", "^{WheelUp}")
-    g::ReMapHHKey("g", "{Home}")
-    +g::ReMapHHKey("+g", "{End}")
+;#IfWinActive ahk_class HH Parent
+    ;ReMapHHKey(orig, new)
+    ;{
+        ;ReMapKey(orig,new, "Internet Explorer_Server\d+", 1)
+    ;}
+    ;j::ReMapHHKey("j", "{Down}")
+    ;k::ReMapHHKey("k", "{Up}")
+    ;h::ReMapHHKey("h", "{PgUp}")
+    ;l::ReMapHHKey("l", "{PgDn}")
+    ;+h::ReMapHHKey("+h", "!{Left}")
+    ;+l::ReMapHHKey("+l", "!{Right}")
+    ;^i::ReMapHHKey("^i", "!{Left}")
+    ;^o::ReMapHHKey("^o", "!{Right}")
+    ;/::ReMapHHKey("/", "^f")
+    ;n::ReMapHHKey("n", "{PgDn}")
+    ;p::ReMapHHKey("p", "{PgUp}")
+    ;^f::ReMapHHKey("^f", "{PgDn}")
+    ;^b::ReMapHHKey("^b", "{PgUp}")
+    ;^d::ReMapHHKey("^d", "{PgDn}")
+    ;^u::ReMapHHKey("^u", "{PgUp}")
+    ;^j::ReMapHHKey("^j", "^{WheelDown}")
+    ;^k::ReMapHHKey("^k", "^{WheelUp}")
+    ;g::ReMapHHKey("g", "{Home}")
+    ;+g::ReMapHHKey("+g", "{End}")
+;#IfWinActive
+
+; hotkeys for story writer
+#IfWinActive ahk_exe Story-writer.exe
+
+SwitchToEnglish()
+{
+    ; This should be replaced by whatever your native language is. See
+    ; http://msdn.microsoft.com/en-us/library/dd318693%28v=vs.85%29.aspx
+    ; for the language identifiers list.
+    en := DllCall("LoadKeyboardLayout", "Str", "00000409", "Int", 1)
+    PostMessage 0x50, 0, %en%,, A
+
+}
+ESC::
+    SendInput {ESC}
+    SwitchToEnglish()
+    return
+
+; format code
+!+f::
+    SwitchToEnglish()
+    Sleep, 100
+
+    ; copy markdown text to clipboard
+    SendInput {ESC}mpi^a^c{ESC}
+
+    ; format clipboard
+    RunWait, pythonw %A_ScriptDir%\format_md_for_storywriter.py
+
+    ; set formatted text
+    SendInput {ESC}i^a^v{ESC}``p
+    return
+
 #IfWinActive
+
 
 ;hotkeys for windbg {{{1
 #IfWinActive ahk_class WinDbgFrameClass
@@ -695,17 +930,11 @@ g_map_keys := 1
         ReMapKey(orig, new, "EVERYTHING_LISTVIEW\d+", 0)
     }
     F4::
-    ControlGetFocus, Var, A
-    if RegExMatch(Var, "EVERYTHING_LISTVIEW\d+")
-    {
-        SendInput ^+c
-        Sleep 200
-        run gvim.exe "%clipboard%"
-    }
-    else
-    {
-        SendInput {F4}
-    }
+    ControlGet, OutputVar, List, Selected, SysListView321, A
+    TmpFile = %A_Temp%\open_everything_file.tmp
+    FileDelete, %TmpFile%
+    FileAppend, %OutputVar%, %TmpFile%
+    run pythonw.exe %A_ScriptDir%\open_everything_file.py %TmpFile%
     return
     j::ReMapEtKey("j", "{Down}")
     k::ReMapEtKey("k", "{Up}")
@@ -762,7 +991,12 @@ g_map_keys := 1
         Dir2 := SubStr(Dir2, 1, StrLen(Dir2) - 4)
         run %PORTABLE_HOME%\BeyondCompare\BCompare.exe /sync "%Dir1%" "%Dir2%"
     return
-    ^!d::SendInput ^g
+    ;^+#s::
+        ;SendInput ^+g
+        ;return
+    ;^+#d::
+        ;SendInput ^g
+        ;return
 #IfWinActive
 
 ;hotkeys for YouDaoDict {{{1
@@ -783,7 +1017,7 @@ return
     SendInput ^!+{F6}
 return
 
-^+#s::SendInput ^!+{F8}
+;^+#s::SendInput ^!+{F8}
 #^s::
     SendInput ^c
     Sleep 100
@@ -1021,5 +1255,48 @@ ListWindowsSysKeyDown(wParam, lParam)
     }
 }
 
-!Tab::ListTopWindows(0)
-!`::ListTopWindows(1)
+;!Tab::ListTopWindows(0)
+;!`::ListTopWindows(1)
+!`::!+Tab
+
+^+#DEL::
+    run taskkill.exe /F /IM explorer.exe
+    Sleep 500
+    run C:\Windows\explorer.exe
+    return
+
+;hotkeys for MobaXterm
+#IfWinActive ahk_class TMobaXtermForm
+^+c::
+    SendInput ^{Ins}
+    return
+^+v::
+    SendInput +{Ins}
+    return
+#IfWinActive
+
+^+#i::
+    tmpfile=%A_ScriptDir%\ahk_text_edit_in_vim.txt
+    gvim=gvim.exe
+    WinGetTitle, active_title, A
+    clipboard =
+        ; 清空剪贴板
+    send ^a
+        ; 发送 Ctrl + A 选中全部文字
+    send ^c
+        ; 发送 Ctrl + C 复制
+    clipwait, 1
+        ; 等待数据进入剪贴板
+    FileDelete, %tmpfile%
+    FileAppend, %clipboard%, %tmpfile%
+    runwait, %gvim% --noplugin -c "set fenc=gbk" "%tmpfile%" +
+    fileread, text, %tmpfile%
+    clipboard:=text
+        ; 还原读取的数据到剪贴板
+    winwait %active_title%
+        ; 等待刚才获取文字的窗口激活
+    send ^a
+        ; 发送 Ctrl + A 选中全部文字
+    send ^v
+        ; 发送 Ctrl + V 粘贴
+return

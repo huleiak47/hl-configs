@@ -7,7 +7,7 @@ Windows Registry Editor Version 5.00
 "PYTHON_HOME"="C:\\Python36-32"
 "GCC_HOME"="{basedir}\\TDM-GCC-32"
 "GIT_HOME"="{basedir}\\Git"
-"VIM_HOME"="{basedir}\\Vim\\vim80"
+"VIM_HOME"="{basedir}\\Vim\\vim81"
 "LIBS_HOME"="{basedir}\\Library"
 "WINDBG_HOME"="{basedir}\\DebuggingToolsforWindowsX86"
 "SVN_HOME"="{basedir}\\Subversion"
@@ -24,4 +24,4 @@ Windows Registry Editor Version 5.00
 "INCLUDE"=<reg_ext_sz>%LIBS_HOME%\\include;%LIBS_HOME%\\wxwidgets\\include;%LIBS_HOME%\\wxwidgets\\lib\\vc_lib\\mswu;%PYTHON_HOME%\\include;%OTHER_INCLUDE%</reg_ext_sz>
 "LIB"=<reg_ext_sz>%LIBS_HOME%\\lib;%LIBS_HOME%\\wxwidgets\\lib\\vc_lib;%PYTHON_HOME%\\libs;%OTHER_LIB%</reg_ext_sz>
 
-"Path"=<reg_ext_sz>%PORTABLE_HOME%\\bin;%CONSOLEZ_HOME%;%LIBS_HOME%\\bin;%PYTHON_HOME%;%JAVA_HOME%\\bin;%JAVA_HOME%\\jre\\bin;%VIM_HOME%;%GCC_HOME%\\bin;%WINDBG_HOME%;%PYTHON_HOME%\\Scripts;%PYTHON_HOME%\\Tools\\Scripts;%SVN_HOME%\\bin;%PANDOC_HOME%;%PRINCE_HOME%\\Engine\\bin;%GIT_HOME%\\cmd;%GIT_HOME%\\mingw32\\bin;%GIT_HOME%\\usr\\bin;%CMAKE_HOME%\\bin;%DOXYGEN_HOME%\\bin;%OPENCPPCOVER_HOME%;%OTHER_PATH%</reg_ext_sz>
+"Path"=<reg_ext_sz>%PORTABLE_HOME%\\bin;%CONSOLEZ_HOME%;%LIBS_HOME%\\bin;%PYTHON_HOME%;%JAVA_HOME%\\bin;%JAVA_HOME%\\jre\\bin;%VIM_HOME%;%GCC_HOME%\\bin;%WINDBG_HOME%;%PYTHON_HOME%\\Scripts;%PYTHON_HOME%\\Tools\\Scripts;%SVN_HOME%\\bin;%PANDOC_HOME%;%PRINCE_HOME%\\Engine\\bin;%GIT_HOME%\\cmd;%GIT_HOME%\\mingw32\\bin;%GIT_HOME%\\usr\\bin;%CMAKE_HOME%\\bin;%DOXYGEN_HOME%\\bin;%OPENCPPCOVER_HOME%;%ECLIPSE_HOME%;%OTHER_PATH%</reg_ext_sz>

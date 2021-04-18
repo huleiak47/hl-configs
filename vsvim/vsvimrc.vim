@@ -23,8 +23,8 @@ nmap ,i :vsc VAssistX.OpenCorrespondingFile<CR>
 vmap ,( :vsc VAssistX.SurroundSelectionWithParentheses<CR>
 vmap ,{ :vsc VAssistX.SurroundSelectionWithBraces<CR>
 vmap ,# :vsc VAssistX.SurroundSelectionWithIfdefOrRegion<CR>
-nmap ,f :vsc Edit.FormatDocumentAstyle<CR>
-vmap ,f :vsc Edit.FormatSelectionAstyle<CR>
+nmap ,fm :vsc Edit.FormatDocument<CR>
+vmap ,fm :vsc Edit.FormatSelection<CR>
 
 nmap 'rn :vsc VAssistX.RefactorRename<CR>
 nmap 'rf :vsc VAssistX.RefactorRenameFiles<CR>
