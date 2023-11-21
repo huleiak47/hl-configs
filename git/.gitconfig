@@ -15,19 +15,35 @@
     br = branch
     rst = reset
     unstage = reset HEAD --
-    last = log -3 HEAD
-    pretty = log --pretty=format:'%h %s' --graph
     df = diff
     dt = difftool -y
     mg = merge
     tg = tag
     rb = rebase
     h = help
+    rmt = remote
     svnup = svn rebase
     svnci = svn dcommit
-[diff]
-	tool = gvimdiff
-[http "https://github.com"]
-    proxy = socks5://127.0.0.1:1080
-[http "http://github.com"]
-    proxy = socks5://127.0.0.1:1080
+    lg1 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+    lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
+    lg = !"git lg1 -25"
+[credential]
+	helper = manager-core
+	
+[pager]
+    diff = delta
+    log = delta
+    reflog = delta
+    show = delta
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    features = side-by-side line-numbers decorations
+    whitespace-error-style = 22 reverse
+
+[delta "decorations"]
+    commit-decoration-style = bold yellow box ul
+    file-style = bold yellow ul
+    file-decoration-style = none

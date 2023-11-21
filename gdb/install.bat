@@ -1,8 +1,8 @@
 @echo off
 
-if exist %HOME%\.gdbinit del %HOME%\.gdbinit
+if exist %USERPROFILE%\.gdbinit del %USERPROFILE%\.gdbinit
 
-cp .gdbinit %HOME%\.gdbinit
+cp .gdbinit %USERPROFILE%\.gdbinit
 if %ERRORLEVEL% NEQ 0 exit /b %ERRORLEVEL%
 
-echo so %~dp0init.py >> %HOME%\.gdbinit
+echo so %~dp0init.py >> %USERPROFILE%\.gdbinit

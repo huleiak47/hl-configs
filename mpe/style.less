@@ -1,17 +1,22 @@
 /* Please visit the URL below for more information: */
 /*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
 
+@base-font: "思源黑体", Arial, YaHei, sans-serif;
+@title-font: @base-font;
+@content-font: @base-font;
+@code-font: "Sarasa Fixed SC", Consolas, NSimSun, monospace;
+
 .markdown-preview.markdown-preview {
   // modify your style here
   // eg: background-color: blue;
   /*background-color: #fef5d8;*/
-  font-family: "Times New Roman", "思源宋体", NSimSun, serif;
+  font-family: @content-font;
   line-height: 1.5em;
 
   div.caption {
-      text-align: center;
-      font-weight: bold;
-      padding-bottom: 1em;
+    text-align: center;
+    font-weight: bold;
+    padding-bottom: 1em;
   }
 
   svg {
@@ -19,9 +24,10 @@
     width: unset !important;
     height: unset !important;
   }
+
   pre,
   code {
-    font-family: "Sarasa Term SC", Consolas, monospace;
+    font-family: @code-font;
     white-space: pre-wrap;
   }
 
@@ -38,6 +44,10 @@
     /*border: 1px solid #cccccc;*/
   }
 
+  svg text {
+    font-family: @content-font;
+  }
+
   table {
     margin-left: auto;
     margin-right: auto;
@@ -46,8 +56,33 @@
     /*border: 1px solid black;*/
   }
 
+  h1 {
+    text-align: center;
+    font-size: 180%;
+  }
+
+  h2 {
+    font-size: 165%;
+  }
+
+  h3 {
+    font-size: 150%;
+  }
+
+  h4 {
+    font-size: 135%;
+  }
+
+  h5 {
+    font-size: 120%;
+  }
+
+  h6 {
+    font-size: 110%;
+  }
+
   p {
-    text-indent: 2em;
+    font-size: 100%;
   }
 
   h1,
@@ -56,52 +91,7 @@
   h4,
   h5,
   h6 {
-    font-family: "思源黑体", YaHei, sans-serif;
-  }
-  h1 {
-    text-align: center;
-  }
-  /*
-  h1 {
-    counter-reset: counter_h2;
-  }
-  h2 {
-    counter-increment: counter_h2;
-    counter-reset: counter_h3;
-  }
-  h3 {
-    counter-increment: counter_h3;
-    counter-reset: counter_h4;
-  }
-  h4 {
-    counter-increment: counter_h4;
-    counter-reset: counter_h5;
-  }
-  h5 {
-    counter-increment: counter_h5;
-    counter-reset: counter_h6;
-  }
-  h6 {
-    counter-increment: counter_h6;
+    font-family: @title-font;
   }
 
-  h2::before {
-    content: counter(counter_h2) " ";
-  }
-  h3::before {
-    content: counter(counter_h2) "." counter(counter_h3) " ";
-  }
-  h4::before {
-    content: counter(counter_h2) "." counter(counter_h3) "." counter(counter_h4)
-      " ";
-  }
-  h5::before {
-    content: counter(counter_h2) "." counter(counter_h3) "." counter(counter_h4)
-      "." counter(counter_h5) " ";
-  }
-  h6::before {
-    content: counter(counter_h2) "." counter(counter_h3) "." counter(counter_h4)
-      "." counter(counter_h5) "." counter(counter_h6) " ";
-  }
-  */
 }

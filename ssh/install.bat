@@ -1,9 +1,9 @@
 @echo off
 
-set THEFILE=%HOME%\.ssh\config
+set THEFILE=%USERPROFILE%\.ssh\config
 if exist %THEFILE% del %THEFILE%
 
-if not exist %HOME%\.ssh mkdir %HOME%\.ssh
+if not exist %USERPROFILE%\.ssh mkdir %USERPROFILE%\.ssh
 
 mklink %THEFILE% %~dp0config
 if %ERRORLEVEL% NEQ 0 goto COPY

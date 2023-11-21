@@ -1,0 +1,75 @@
+// 将键绑定放入此文件中以覆盖默认值
+[
+    // 复制到系统剪贴板
+    {
+        "key": "ctrl+c",
+        // activate during visual mode
+        "when": "editorTextFocus && neovim.mode == visual",
+        // the input to send to Neovim (copy selection)
+        "command": "vscode-neovim.send",
+        "args": "\"+y"
+    },
+    // 按s键删除选择文本并进入insert状态，原功能有时光标会定位到行尾
+    {
+        "key": "s",
+        // activate during visual mode
+        "when": "editorTextFocus && neovim.mode == visual",
+        "command": "vscode-neovim.send",
+        "args": "xi"
+    },
+    // shift+y复制整行，原功能复制当前位置到行尾，和VIM不同
+    {
+        "key": "shift+y",
+        // activate during visual mode
+        "when": "editorTextFocus && neovim.mode == normal",
+        "command": "vscode-neovim.send",
+        "args": "yy"
+    },
+    {
+        "key": "f7",
+        "command": "workbench.action.tasks.build"
+    },
+    {
+        "key": "shift+f7",
+        "command": "workbench.action.tasks.test"
+    },
+    {
+        "key": "ctrl+f7",
+        "command": "workbench.action.tasks.runTask"
+    },
+    {
+        "key": "ctrl+]",
+        "command": "editor.action.goToDeclaration"
+    },
+    {
+        "key": "ctrl+shift+t",
+        "command": "workbench.view.scm"
+    },
+    {
+        "key": "ctrl+shift+g",
+        "command": "-workbench.view.scm"
+    },
+    {
+        "key": "ctrl+shift+b",
+        "command": "workbench.action.toggleSidebarVisibility"
+    },
+    {
+        "key": "ctrl+shift+alt+o",
+        "command": "workbench.action.showAllSymbols"
+    },
+    {
+        "key": "ctrl+alt+v",
+        "command": "-latex-workshop.view",
+        "when": "!config.latex-workshop.bind.altKeymap.enabled"
+    },
+    {
+        "key": "ctrl+c",
+        "command": "-vscode-neovim.escape",
+        "when": "editorTextFocus && neovim.ctrlKeysNormal && neovim.init && !dirtyDiffVisible && !findWidgetVisible && !inReferenceSearchEditor && !markersNavigationVisible && !notebookCellFocused && !notificationCenterVisible && !parameterHintsVisible && !referenceSearchVisible && neovim.mode == 'normal'"
+    },
+    {
+        "key": "ctrl+c",
+        "command": "-vscode-neovim.escape",
+        "when": "editorTextFocus && neovim.ctrlKeysInsert && neovim.init && neovim.mode != 'normal'"
+    },
+]

@@ -1,11 +1,11 @@
 @echo off
 
-if not exist %HOME%\pip mkdir %HOME%\pip
-if exist %HOME%\pip\pip.ini del %HOME%\pip\pip.ini
+if not exist %USERPROFILE%\pip mkdir %USERPROFILE%\pip
+if exist %USERPROFILE%\pip\pip.ini del %USERPROFILE%\pip\pip.ini
 
-mklink %HOME%\pip\pip.ini %~dp0pip.ini
+mklink %USERPROFILE%\pip\pip.ini %~dp0pip.ini
 if %ERRORLEVEL% NEQ 0 goto COPY
 exit /b 0
 
 :COPY
-cp pip.ini %HOME%\pip\pip.ini
+cp pip.ini %USERPROFILE%\pip\pip.ini

@@ -1,10 +1,10 @@
 @echo off
 
-if exist %HOME%\.gitconfig del %HOME%\.gitconfig
+if exist %USERPROFILE%\.gitconfig del %USERPROFILE%\.gitconfig
 
-mklink %HOME%\.gitconfig %~dp0.gitconfig
+mklink %USERPROFILE%\.gitconfig %~dp0.gitconfig
 if %ERRORLEVEL% NEQ 0 goto COPY
 exit /b 0
 
 :COPY
-cp .gitconfig %HOME%\.gitconfig
+cp .gitconfig %USERPROFILE%\.gitconfig
