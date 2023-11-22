@@ -176,5 +176,9 @@
   },
   "extensions.experimental.affinity": {
     "asvetliakov.vscode-neovim": 1
-  }
+  },
+  "security.workspace.trust.untrustedFiles": "newWindow",
+  "vscode-ahk-plus.documentPath": "C:\\Users\\james\\scoop\\apps\\autohotkey\\current\\v2\\AutoHotkey.chm",
+  "vscode-ahk-plus.executePath": "C:\\Users\\james\\scoop\\apps\\autohotkey\\current\\v2\\AutoHotkey64.exe",
+  "AutoHotkey2.InterpreterPath": "C:\\Users\\james\\scoop\\apps\\autohotkey\\current\\v2\\AutoHotkey64.exe"
 }
