@@ -48,6 +48,12 @@ SwitchWindow(title)
     Run(SCOOP_APPS "\notepad3\current\Notepad3.exe")
 }
 
+^+#s::Run("https://www.google.com")
+
+#z::Send("!{F4}")
+
+#x::WinMinimize("A")
+
 ^+#DEL::
 {
     Run("taskkill.exe /F /IM explorer.exe")
