@@ -2,8 +2,15 @@ let mapleader = ","
 
 call plug#begin()
 Plug 'tpope/vim-surround'
-Plug 'asvetliakov/vim-easymotion', { 'as': 'vsc-easymotion' }
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-repeat'
 call plug#end()
+
+nnoremap <leader>rp :call VSCodeNotify('editor.action.startFindReplaceAction')<CR>
+xnoremap <leader>rp :call VSCodeNotify('editor.action.startFindReplaceAction')<CR>
+
+nnoremap <leader>rw :call VSCodeNotify('editor.action.startFindReplaceAction', {'text': expand('<cword>')})<CR>
+xnoremap <leader>rw :call VSCodeNotify('editor.action.startFindReplaceAction', {'text': expand('<cword>')})<CR>
 
 " Better Navigation
 nnoremap <silent> <C-j> :call VSCodeNotify('workbench.action.navigateDown')<CR>
@@ -45,8 +52,8 @@ nnoremap <expr> <Leader>c<Space> <SID>rangeExitSelection('editor.action.commentL
 " ----------
 " whichkey
 " ----------
-nnoremap <silent> \ :call VSCodeNotify('whichkey.show')<CR>
-xnoremap <silent> \ :<C-U>call <SID>range('whichkey.show')<CR>
+"nnoremap <silent> <Space> :call VSCodeNotify('whichkey.show')<CR>
+"xnoremap <silent> <Space> :<C-U>call <SID>range('whichkey.show')<CR>
 
 function! s:range(cmd, ...) abort
     let selection = get(a:, 1, 0)

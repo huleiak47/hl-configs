@@ -10,13 +10,13 @@
         "args": "\"+y"
     },
     // 按s键删除选择文本并进入insert状态，原功能有时光标会定位到行尾
-    {
-        "key": "s",
-        // activate during visual mode
-        "when": "editorTextFocus && neovim.mode == visual",
-        "command": "vscode-neovim.send",
-        "args": "xi"
-    },
+    // {
+    //     "key": "s",
+    //     // activate during visual mode
+    //     "when": "editorTextFocus && neovim.mode == visual",
+    //     "command": "vscode-neovim.send",
+    //     "args": "xi"
+    // },
     // shift+y复制整行，原功能复制当前位置到行尾，和VIM不同
     {
         "key": "shift+y",
@@ -72,4 +72,48 @@
         "command": "-vscode-neovim.escape",
         "when": "editorTextFocus && neovim.ctrlKeysInsert && neovim.init && neovim.mode != 'normal'"
     },
+    {
+        "key": "ctrl+d",
+        "command": "-vscode-neovim.ctrl-d",
+        "when": "editorTextFocus && neovim.ctrlKeysNormal && neovim.init && neovim.mode != 'insert'"
+    },
+    {
+        "key": "ctrl+u",
+        "command": "-vscode-neovim.ctrl-u",
+        "when": "editorTextFocus && neovim.ctrlKeysNormal && neovim.init && neovim.mode != 'insert'"
+    },
+    {
+        "key": "ctrl+f",
+        "command": "-vscode-neovim.ctrl-f",
+        "when": "editorTextFocus && neovim.ctrlKeysNormal && neovim.init && neovim.mode != 'insert'"
+    },
+    {
+        "key": "ctrl+b",
+        "command": "-vscode-neovim.ctrl-b",
+        "when": "editorTextFocus && neovim.ctrlKeysNormal && neovim.init && neovim.mode != 'insert'"
+    },
+    {
+        "command": "vscode-neovim.send",
+        "key": "ctrl+d",
+        "when": "editorTextFocus && neovim.init && neovim.mode != insert || neovim.recording",
+        "args": "<C-D>"
+    },
+    {
+        "command": "vscode-neovim.send",
+        "key": "ctrl+u",
+        "when": "editorTextFocus && neovim.init && neovim.mode != insert || neovim.recording",
+        "args": "<C-U>"
+    },
+    {
+        "command": "vscode-neovim.send",
+        "key": "ctrl+f",
+        "when": "editorTextFocus && neovim.init && neovim.mode != insert || neovim.recording",
+        "args": "<C-D>"
+    },
+    {
+        "command": "vscode-neovim.send",
+        "key": "ctrl+b",
+        "when": "editorTextFocus && neovim.init && neovim.mode != insert || neovim.recording",
+        "args": "<C-U>"
+    }
 ]

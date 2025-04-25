@@ -23,16 +23,16 @@
             "$0",
             "#ifdef __cplusplus",
             "}",
-            "#endif",
+            "#endif"
         ]
     },
     "once": {
         "prefix": "once",
         "body": [
-            "#ifndef __${1}__",
-            "#define __${1}__",
+            "#ifndef ${1}",
+            "#define ${1}",
             "$0",
-            "#endif // __${1}__",
+            "#endif // ${1}"
         ]
     },
     "ifdef": {
@@ -40,7 +40,7 @@
         "body": [
             "#ifdef $1",
             "$0",
-            "#endif // defined $1",
+            "#endif // defined $1"
         ]
     },
     "ifdefelse": {
@@ -50,7 +50,7 @@
             "$2",
             "#else // !defined $1",
             "$3",
-            "#endif // defined $1",
+            "#endif // defined $1"
         ]
     },
     "ifndef": {
@@ -58,7 +58,7 @@
         "body": [
             "#ifdef $1",
             "$0",
-            "#endif // !defined $1",
+            "#endif // !defined $1"
         ]
     },
     "ifndefelse": {
@@ -68,7 +68,7 @@
             "$2",
             "#else // defined $1",
             "$3",
-            "#endif // !defined $1",
+            "#endif // !defined $1"
         ]
     }
 }

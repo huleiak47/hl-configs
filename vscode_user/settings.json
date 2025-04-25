@@ -1,184 +1,218 @@
 // 将设置放入此文件中以覆盖默认设置
 {
-  "files.autoGuessEncoding": true,
-  "files.associations": {
-    "SConstruct": "python",
-    "*.scons": "python"
-  },
-  "files.eol": "\n",
-  "editor.minimap.maxColumn": 80,
-  "editor.cursorStyle": "block",
-  "workbench.statusBar.visible": true,
-  "editor.fontSize": 16,
-  "terminal.integrated.fontSize": 13,
-  "plantuml.render": "Local",
-  "editor.rulers": [100],
-  "git.path": "git",
-  "editor.lineNumbers": "on",
-  "editor.fontFamily": "'Sarasa Fixed SC', 'Droid Sans Mono', 'Courier New', 微软雅黑",
-  "editor.quickSuggestionsDelay": 50,
-  "editor.acceptSuggestionOnEnter": "off",
-  "editor.acceptSuggestionOnCommitCharacter": false,
-  // doxygen
-  "doxdocgen.generic.includeTypeAtReturn": false,
-  // python
-  "python.formatting.provider": "black",
-  // markdown
-  "markdown.preview.fontSize": 15,
-  "markdown.preview.fontFamily": "'更纱黑体 SC', -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', 'HelveticaNeue-Light', 'Ubuntu', 'Droid Sans', sans-serif",
-  "extensions.ignoreRecommendations": true,
-  "explorer.confirmDelete": false,
-  "editor.renderWhitespace": "none",
-  "editor.renderControlCharacters": true,
-  "markdown.extension.print.imgToBase64": true,
-  "[markdown]": {
-    "editor.quickSuggestions": {
-      "comments": "on",
-      "strings": "on",
-      "other": "on"
+    "files.autoGuessEncoding": true,
+    "files.associations": {
+        "SConstruct": "python",
+        "*.scons": "python",
+        "*.h": "c"
     },
-    "editor.defaultFormatter": "SteefH.external-formatters"
-  },
-  "explorer.confirmDragAndDrop": false,
-  "editor.mouseWheelZoom": true,
-  "markdown.extension.tableFormatter.enabled": false,
-  "json.format.enable": true,
-  "editor.suggestSelection": "first",
-  "[c]": {
-    "editor.defaultFormatter": "xaver.clang-format"
-  },
-  "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[cpp]": {
-    "editor.defaultFormatter": "xaver.clang-format"
-  },
-  "[java]": {
-    "editor.defaultFormatter": "SteefH.external-formatters"
-  },
-  "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[python]": {
-    "editor.rulers": [88],
-    "editor.formatOnType": true,
-    "editor.defaultFormatter": "ms-python.black-formatter"
-  },
-  "extensions.autoUpdate": false,
-  "files.insertFinalNewline": true,
-  "files.trimFinalNewlines": true,
-  "files.exclude": {
-    "**/.classpath": true,
-    "**/.project": true,
-    "**/.settings": true,
-    "**/.factorypath": true
-  },
-  "markdown-preview-enhanced.enableExtendedTableSyntax": true,
-  "markdown-preview-enhanced.latexEngine": "xelatex",
-  "pasteImage.path": "${currentFileDir}/images",
-  "http.proxySupport": "off",
-  "editor.wordWrap": "on",
-  "editor.minimap.enabled": false,
-  "workbench.colorTheme": "One Dark Pro",
-  "editor.copyWithSyntaxHighlighting": false,
-  "remote.SSH.remotePlatform": {
-    "192.168.182.128": "linux",
-    "192.168.182.129": "linux",
-    "11.163.87.166": "linux",
-    "11.166.87.232": "linux",
-    "192.168.99.99": "linux",
-    "192.168.153.128": "linux"
-  },
-  "python.languageServer": "Pylance",
-  "redhat.telemetry.enabled": false,
-  "[xml]": {
-    "editor.defaultFormatter": "DotJoshJohnson.xml"
-  },
-  "clang-format.language.c.fallbackStyle": "WebKit",
-  "externalFormatters.languages": {
-    "markdown": {
-      "command": "mdformat.bat"
+    "files.eol": "\n",
+    "editor.minimap.maxColumn": 80,
+    "workbench.statusBar.visible": true,
+    "editor.fontSize": 16,
+    "terminal.integrated.fontSize": 13,
+    "plantuml.render": "Local",
+    "editor.rulers": [80, 120],
+    "git.path": "git",
+    "editor.lineNumbers": "on",
+    "editor.fontFamily": "'Sarasa Fixed SC', 'Droid Sans Mono', 'Courier New', 微软雅黑",
+    "editor.quickSuggestionsDelay": 50,
+    "editor.acceptSuggestionOnEnter": "off",
+    "editor.acceptSuggestionOnCommitCharacter": false,
+    // doxygen
+    "doxdocgen.generic.includeTypeAtReturn": false,
+    // python
+    "python.formatting.provider": "black",
+    // markdown
+    "markdown.preview.fontSize": 15,
+    "markdown.preview.fontFamily": "'更纱黑体 SC', -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', 'HelveticaNeue-Light', 'Ubuntu', 'Droid Sans', sans-serif",
+    "extensions.ignoreRecommendations": true,
+    "explorer.confirmDelete": false,
+    "editor.renderWhitespace": "none",
+    "editor.renderControlCharacters": true,
+    "markdown.extension.print.imgToBase64": true,
+    "[markdown]": {
+        "editor.quickSuggestions": {
+            "comments": "on",
+            "strings": "on",
+            "other": "on"
+        },
+        "editor.defaultFormatter": "SteefH.external-formatters"
     },
-    "java": {
-      "command": "clang-format.exe",
-      "arguments": ["--assume-filename=test.java"]
-    }
-  },
-  "openInExternalApp.openMapper": [
-    {
-      // represent file extension name
-      "extensionName": "*",
-      // the external applications to open the file which extension name is html
-      "apps": [
-        // openCommand can be shell command or the complete executable application path
-        // title will be shown in the drop list if there are several apps
-        {
-          "title": "gvim",
-          "openCommand": "gvim"
+    "[plantuml]": {
+        "editor.defaultFormatter": "SteefH.external-formatters"
+    },
+    "[latex]": {
+        "editor.defaultFormatter": "SteefH.external-formatters",
+        "editor.formatOnSave": false
+    },
+    "[toml]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "explorer.confirmDragAndDrop": false,
+    "editor.mouseWheelZoom": true,
+    "markdown.extension.tableFormatter.enabled": false,
+    "json.format.enable": true,
+    "editor.suggestSelection": "first",
+    "[c]": {
+        "editor.defaultFormatter": "xaver.clang-format"
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[cpp]": {
+        "editor.defaultFormatter": "xaver.clang-format"
+    },
+    "[java]": {
+        "editor.defaultFormatter": "SteefH.external-formatters"
+    },
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "extensions.autoUpdate": false,
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "files.exclude": {
+        "**/.classpath": true,
+        "**/.project": true,
+        "**/.settings": true,
+        "**/.factorypath": true
+    },
+    "markdown-preview-enhanced.enableExtendedTableSyntax": true,
+    "markdown-preview-enhanced.latexEngine": "xelatex",
+    "http.proxySupport": "off",
+    "editor.minimap.enabled": false,
+    "workbench.colorTheme": "Monokai",
+    "editor.copyWithSyntaxHighlighting": false,
+    "remote.SSH.remotePlatform": {
+        "192.168.8.141": "linux"
+    },
+    "python.languageServer": "Pylance",
+    "clang-format.language.c.fallbackStyle": "WebKit",
+    "externalFormatters.languages": {
+        "markdown": {
+            "command": "python.exe",
+            "arguments": ["D:/software/bin/mdformat"]
+        },
+        "plantuml": {
+            "command": "pumlformat",
+            "arguments": []
+        },
+        "java": {
+            "command": "clang-format.exe",
+            "arguments": ["--assume-filename=test.java"]
+        },
+        "latex": {
+            "command": "latexindent.exe",
+            "arguments": []
         }
-      ]
-    }
-  ],
-  "clang-format.language.cpp.fallbackStyle": "WebKit",
-  "clang-format.language.apex.fallbackStyle": "{BasedOnStyle: WebKit, ColumnLimit: 120, IndentWidth: 4, AlignAfterOpenBracket: Align, AlignConsecutiveMacros: true, AlignConsecutiveBitFields: true, AlignOperands: true, AlignTrailingComments: true, AllowShortFunctionsOnASingleLine: None, AllowShortBlocksOnASingleLine: false, AllowShortIfStatementsOnASingleLine: false, AlwaysBreakTemplateDeclarations: true, KeepEmptyLinesAtTheStartOfBlocks: false, PointerAlignment: Left, SortIncludes: false}",
-  "clang-format.assumeFilename": "test.cpp",
-  "editor.bracketPairColorization.enabled": true,
-  "editor.guides.bracketPairs": "active",
-  "hediet.vscode-drawio.customLibraries": [],
-  "git-graph.defaultColumnVisibility": {
-    "Date": true,
-    "Author": true,
-    "Commit": true
-  },
-  "git.confirmSync": false,
-  "python.analysis.typeCheckingMode": "strict",
-  "workbench.iconTheme": "material-icon-theme",
-  "clangd.arguments": ["--header-insertion=never"],
-  "clangd.fallbackFlags": ["-std=c++17"],
-  "markdown-preview-enhanced.previewTheme": "solarized-light.css",
-  "clangd.path": "c:\\Users\\james\\AppData\\Roaming\\Code\\User\\globalStorage\\llvm-vs-code-extensions.vscode-clangd\\install\\15.0.6\\clangd_15.0.6\\bin\\clangd.exe",
-  "evenBetterToml.formatter.columnWidth": 80,
-  "rust-analyzer.inlayHints.bindingModeHints.enable": true,
-  "rust-analyzer.inlayHints.closureReturnTypeHints.enable": "always",
-  "rust-analyzer.inlayHints.expressionAdjustmentHints.enable": "always",
-  "rust-analyzer.inlayHints.lifetimeElisionHints.enable": "always",
-  "python.analysis.indexing": true,
-  "python.analysis.inlayHints.functionReturnTypes": true,
-  "python.analysis.inlayHints.variableTypes": true,
-  "rust-analyzer.inlayHints.discriminantHints.enable": "always",
-  "rust-analyzer.inlayHints.reborrowHints.enable": "always",
-  "rust-analyzer.inlayHints.maxLength": null,
-  "editor.inlayHints.enabled": "offUnlessPressed",
-  "rust-analyzer.imports.prefix": "crate",
-  "rust-analyzer.inlayHints.lifetimeElisionHints.useParameterNames": true,
-  "vscode-neovim.neovimExecutablePaths.win32": "C:\\Users\\james\\scoop\\apps\\neovim\\current\\bin\\nvim.exe",
-  "hediet.vscode-drawio.resizeImages": null,
-  "pasteImage.prefix": "images/",
-  "[css]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[vue]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "prettier.printWidth": 100,
-  "prettier.tabWidth": 4,
-  "diffEditor.ignoreTrimWhitespace": false,
-  "markdown-preview-enhanced.plantumlJarPath": "C:\\Users\\james\\scoop\\apps\\plantuml\\current\\plantuml.jar",
-  "git.openRepositoryInParentFolders": "never",
-  "editor.unicodeHighlight.allowedLocales": {
-    "zh-hans": true
-  },
-  "extensions.experimental.affinity": {
-    "asvetliakov.vscode-neovim": 1
-  },
-  "security.workspace.trust.untrustedFiles": "newWindow",
-  "vscode-ahk-plus.documentPath": "C:\\Users\\james\\scoop\\apps\\autohotkey\\current\\v2\\AutoHotkey.chm",
-  "vscode-ahk-plus.executePath": "C:\\Users\\james\\scoop\\apps\\autohotkey\\current\\v2\\AutoHotkey64.exe",
-  "AutoHotkey2.InterpreterPath": "C:\\Users\\james\\scoop\\apps\\autohotkey\\current\\v2\\AutoHotkey64.exe"
+    },
+    "clang-format.language.cpp.fallbackStyle": "WebKit",
+    "clang-format.language.apex.fallbackStyle": "{BasedOnStyle: WebKit, ColumnLimit: 120, IndentWidth: 4, AlignAfterOpenBracket: Align, AlignConsecutiveMacros: true, AlignConsecutiveBitFields: true, AlignOperands: true, AlignTrailingComments: true, AllowShortFunctionsOnASingleLine: None, AllowShortBlocksOnASingleLine: false, AllowShortIfStatementsOnASingleLine: false, AlwaysBreakTemplateDeclarations: true, KeepEmptyLinesAtTheStartOfBlocks: false, PointerAlignment: Left, SortIncludes: false}",
+    "clang-format.assumeFilename": "test.cpp",
+    "editor.bracketPairColorization.enabled": true,
+    "editor.guides.bracketPairs": "active",
+    "hediet.vscode-drawio.customLibraries": [],
+    "git-graph.defaultColumnVisibility": {
+        "Date": true,
+        "Author": true,
+        "Commit": true
+    },
+    "git.confirmSync": false,
+    "python.analysis.typeCheckingMode": "strict",
+    "clangd.arguments": [
+        "--header-insertion=never",
+        "--compile-commands-dir=${workspaceFolder}/build",
+        "--completion-style=detailed",
+        "--enable-config"
+    ],
+    "clangd.fallbackFlags": ["-std=c++17"],
+    "clangd.path": "clangd.exe",
+    "markdown-preview-enhanced.previewTheme": "solarized-light.css",
+    "evenBetterToml.formatter.columnWidth": 80,
+    "rust-analyzer.inlayHints.bindingModeHints.enable": true,
+    "rust-analyzer.inlayHints.closureReturnTypeHints.enable": "always",
+    "rust-analyzer.inlayHints.expressionAdjustmentHints.enable": "always",
+    "rust-analyzer.inlayHints.lifetimeElisionHints.enable": "always",
+    "python.analysis.indexing": true,
+    "python.analysis.inlayHints.functionReturnTypes": true,
+    "python.analysis.inlayHints.variableTypes": true,
+    "rust-analyzer.inlayHints.discriminantHints.enable": "always",
+    "rust-analyzer.inlayHints.reborrowHints.enable": "always",
+    "rust-analyzer.inlayHints.maxLength": null,
+    "editor.inlayHints.enabled": "offUnlessPressed",
+    "rust-analyzer.imports.prefix": "crate",
+    "rust-analyzer.inlayHints.lifetimeElisionHints.useParameterNames": true,
+    "hediet.vscode-drawio.resizeImages": null,
+    "[css]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[vue]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "prettier.printWidth": 100,
+    "prettier.tabWidth": 4,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "markdown-preview-enhanced.plantumlJarPath": "D:\\software\\plantuml\\plantuml-1.2025.1.jar",
+    "git.openRepositoryInParentFolders": "never",
+    "editor.unicodeHighlight.allowedLocales": {
+        "zh-hans": true
+    },
+    "extensions.experimental.affinity": {
+        "asvetliakov.vscode-neovim": 1
+    },
+    "security.workspace.trust.untrustedFiles": "newWindow",
+    "AutoHotkey2.InterpreterPath": "C:\\Users\\james\\scoop\\apps\\autohotkey\\current\\v2\\AutoHotkey64.exe",
+    "security.workspace.trust.startupPrompt": "never",
+    "security.workspace.trust.banner": "never",
+    "clang-format.executable": "D:\\software\\bin\\clang-format.exe",
+    "diffEditor.maxComputationTime": 0,
+    "shellformat.path": "D:\\software\\bin\\shfmt.exe",
+    "workbench.editorAssociations": {
+        "*.md": "default",
+        "*.markdown": "default",
+        "*.puml": "default"
+    },
+    "chat.commandCenter.enabled": false,
+    "diffEditor.renderSideBySide": true,
+    "markdown-preview-enhanced.enableScriptExecution": true,
+    "markdown-preview-enhanced.previewMode": "Multiple Previews",
+    "vscode-neovim.ctrlKeysForNormalMode": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e",
+        "f",
+        "i",
+        "j",
+        "k",
+        "l",
+        "m",
+        "o",
+        "r",
+        "t",
+        "u",
+        "v",
+        "w",
+        "x",
+        "y",
+        "z",
+        "/",
+        "]",
+        "right",
+        "left",
+        "up",
+        "down",
+        "backspace",
+        "delete"
+    ],
+    "editor.formatOnSave": true,
+    "errorLens.messageEnabled": true
 }
