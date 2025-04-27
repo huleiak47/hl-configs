@@ -1,0 +1,25 @@
+Windows Registry Editor Version 5.00
+
+; 文件右键菜单
+[HKEY_CLASSES_ROOT\*\shell\ZedOpen]
+"MUIVerb"="用 zed 打开此文件"
+"Icon"="\"C:\\Users\\osr\\scoop\\apps\\zed\\current\\zed.exe\",0"
+
+[HKEY_CLASSES_ROOT\*\shell\ZedOpen\command]
+@="\"C:\\Users\\osr\\scoop\\apps\\zed\\current\\zed.exe\" \"%1\""
+
+; 文件夹右键菜单
+[HKEY_CLASSES_ROOT\Directory\shell\ZedOpen]
+"MUIVerb"="用 zed 打开此文件夹"
+"Icon"="\"C:\\Users\\osr\\scoop\\apps\\zed\\current\\zed.exe\",0"
+
+[HKEY_CLASSES_ROOT\Directory\shell\ZedOpen\command]
+@="\"C:\\Users\\osr\\scoop\\apps\\zed\\current\\zed.exe\" \"%1\""
+
+; 空白处右键菜单（需在文件夹内空白处右键）
+[HKEY_CLASSES_ROOT\Directory\Background\shell\ZedOpen]
+"MUIVerb"="用 zed 打开此文件夹"
+"Icon"="\"C:\\Users\\osr\\scoop\\apps\\zed\\current\\zed.exe\",0"
+
+[HKEY_CLASSES_ROOT\Directory\Background\shell\ZedOpen\command]
+@="\"C:\\Users\\osr\\scoop\\apps\\zed\\current\\zed.exe\" \"%V\""
