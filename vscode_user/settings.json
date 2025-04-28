@@ -171,7 +171,7 @@
     "AutoHotkey2.InterpreterPath": "C:\\Users\\james\\scoop\\apps\\autohotkey\\current\\v2\\AutoHotkey64.exe",
     "security.workspace.trust.startupPrompt": "never",
     "security.workspace.trust.banner": "never",
-    "clang-format.executable": "D:\\software\\bin\\clang-format.exe",
+    "clang-format.executable": "",
     "diffEditor.maxComputationTime": 0,
     "shellformat.path": "D:\\software\\bin\\shfmt.exe",
     "workbench.editorAssociations": {
@@ -214,5 +214,16 @@
         "delete"
     ],
     "editor.formatOnSave": true,
-    "errorLens.messageEnabled": true
+    "errorLens.messageEnabled": true,
+    "openInExternalApp.openMapper": [
+        {
+            "extensionName": "*",
+            "apps": [
+                {
+                    "title": "nvim",
+                    "openCommand": "nvim"
+                }
+            ]
+        }
+    ]
 }

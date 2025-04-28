@@ -115,5 +115,9 @@
         "key": "ctrl+b",
         "when": "editorTextFocus && neovim.init && neovim.mode != insert || neovim.recording",
         "args": "<C-U>"
+    },
+    {
+        "key": "ctrl+shift+alt+v",
+        "command": "openInExternalApp.open"
     }
 ]
