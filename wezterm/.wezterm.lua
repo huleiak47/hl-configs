@@ -19,7 +19,7 @@ config.initial_cols = 130
 config.initial_rows = 35
 
 -- 透明背景
--- config.window_background_opacity = 0.95
+-- config.window_background_opacity = 0.70
 -- 取消 Windows 原生标题栏
 config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
 -- 滚动条尺寸为 15

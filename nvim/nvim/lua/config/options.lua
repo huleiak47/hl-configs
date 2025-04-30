@@ -16,3 +16,5 @@ opt.ignorecase = true
 opt.smartcase = true
 opt.relativenumber = true
 opt.selection = "old"
+opt.textwidth = 80
+opt.title = true
