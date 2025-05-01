@@ -18,3 +18,4 @@ opt.relativenumber = true
 opt.selection = "old"
 opt.textwidth = 80
 opt.title = true
+opt.clipboard = ""

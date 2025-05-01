@@ -6,24 +6,24 @@ Windows Registry Editor Version 5.00
 
 [HKEY_CLASSES_ROOT\*\shell\nvim]
 @="在 neovim 中编辑"
-"Icon"="C:\\Users\\osr\\scoop\\apps\\neovim\\current\\bin\\nvim.exe,0"
+"Icon"="C:\\Users\\james\\scoop\\apps\\neovim\\current\\bin\\nvim.exe,0"
 
 [HKEY_CLASSES_ROOT\*\shell\nvim\command]
-@="\"C:\\Users\\osr\\scoop\\apps\\wezterm\\current\\wezterm-gui.exe\" start nvim \"%1\""
+@="\"C:\\Users\\james\\scoop\\apps\\wezterm\\current\\wezterm-gui.exe\" start nvim \"%1\""
 
 ; 文件夹右键菜单
 [HKEY_CLASSES_ROOT\Directory\shell\nvim]
 "MUIVerb"="用 neovim 打开此文件夹"
-"Icon"="\"C:\\Users\\osr\\scoop\\apps\\neovim\\current\\bin\\nvim.exe\",0"
+"Icon"="\"C:\\Users\\james\\scoop\\apps\\neovim\\current\\bin\\nvim.exe\",0"
 
 [HKEY_CLASSES_ROOT\Directory\shell\nvim\command]
-@="\"C:\\Users\\osr\\scoop\\apps\\wezterm\\current\\wezterm-gui.exe\" start nvim \"%1\""
+@="\"C:\\Users\\james\\scoop\\apps\\wezterm\\current\\wezterm-gui.exe\" start nvim \"%1\""
 
 ; 空白处右键菜单（需在文件夹内空白处右键）
 [HKEY_CLASSES_ROOT\Directory\Background\shell\nvim]
 "MUIVerb"="用 neovim 打开此文件夹"
-"Icon"="\"C:\\Users\\osr\\scoop\\apps\\neovim\\current\\bin\\nvim.exe\",0"
+"Icon"="\"C:\\Users\\james\\scoop\\apps\\neovim\\current\\bin\\nvim.exe\",0"
 
 [HKEY_CLASSES_ROOT\Directory\Background\shell\nvim\command]
-@="\"C:\\Users\\osr\\scoop\\apps\\wezterm\\current\\wezterm-gui.exe\" start nvim \"%V\""
+@="\"C:\\Users\\james\\scoop\\apps\\wezterm\\current\\wezterm-gui.exe\" start nvim \"%V\""
 

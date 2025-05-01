@@ -1,1 +1,0 @@
-copy dirs into `%LOCALAPPDATA%\`
