@@ -49,3 +49,5 @@
     file-decoration-style = none
 [http "https://github.com"]
 	proxy = http://127.0.0.1:7890
+[safe]
+	directory = C:/Users/

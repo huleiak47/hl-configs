@@ -6,3 +6,6 @@ local map = vim.keymap.set
 
 -- use ctrl-c to copy text to system clipboard in visual mode
 map("x", "<C-c>", '"*y', { desc = "Copy to system clipboard", remap = true })
+map("n", "Y", "Vy", { desc = "Yank the whole line when press Y in normal mode", remap = true })
+
+map("n", "<space>-", ":Oil<CR>", { desc = "Open oil.nvim buffer", remap = true })
