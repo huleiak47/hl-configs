@@ -8,4 +8,16 @@ local map = vim.keymap.set
 map("x", "<C-c>", '"*y', { desc = "Copy to system clipboard", remap = true })
 map("n", "Y", "Vy", { desc = "Yank the whole line when press Y in normal mode", remap = true })
 
-map("n", "<space>-", ":Oil<CR>", { desc = "Open oil.nvim buffer", remap = true })
+map("n", "<leader>-", ":Oil<CR>", { desc = "Open oil.nvim buffer", remap = true })
+
+-- git
+map("n", "<leader>gd", ":DiffviewOpen<CR>", { desc = "DiffviewOpen, show code diffs", remap = true })
+map("n", "<leader>gh", ":DiffviewFileHistory<CR>", { desc = "show all files git history", remap = true })
+map("x", "<leader>gh", ":'<,'>DiffviewFileHistory<CR>", { desc = "show selected history", remap = true })
+map(
+  "n",
+  "<leader>g%",
+  "<Cmd>DiffviewFileHistory %<CR>",
+  { desc = "DiffviewFileHistory, show current history", remap = false }
+)
+map("n", "<leader>gn", ":Neogit<CR>", { desc = "show neogit", remap = true })
