@@ -42,7 +42,7 @@
         "command": "editor.action.goToDeclaration"
     },
     {
-        "key": "ctrl+shift+t",
+        "key": "ctrl+shift+g",
         "command": "workbench.view.scm"
     },
     {
@@ -119,5 +119,9 @@
     {
         "key": "ctrl+shift+alt+v",
         "command": "openInExternalApp.open"
+    },
+    {
+        "key": "ctrl+shift+t",
+        "command": "outline.focus"
     }
 ]

@@ -175,3 +175,6 @@ export UV_LINK_MODE=copy
 
 alias pc=proxychains
 alias make="make -j"
+
+# for windows
+alias gnvim="start wezterm-gui start nvim"

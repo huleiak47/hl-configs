@@ -21,3 +21,10 @@ map(
   { desc = "DiffviewFileHistory, show current history", remap = false }
 )
 map("n", "<leader>gn", ":Neogit<CR>", { desc = "show neogit", remap = true })
+
+-- use c-/ to toggle comment
+map("n", "<C-/>", "gcc", { desc = "toggle comment for current line", remap = true })
+map("x", "<C-/>", "gc", { desc = "toggle comment for selected lines", remap = true })
+-- in terminal C-/ will be remaped to C-_
+map("n", "<C-_>", "gcc", { desc = "toggle comment for current line", remap = true })
+map("x", "<C-_>", "gc", { desc = "toggle comment for selected lines", remap = true })
