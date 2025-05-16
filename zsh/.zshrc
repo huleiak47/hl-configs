@@ -168,6 +168,7 @@ precmd() {
     unset exit_code
 }
 
+export LC_ALL=zh_CN.UTF-8
 export RUSTUP_DIST_SERVER="https://rsproxy.cn"
 export RUSTUP_UPDATE_ROOT="https://rsproxy.cn/rustup"
 

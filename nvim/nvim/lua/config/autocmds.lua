@@ -44,10 +44,26 @@ vim.api.nvim_create_autocmd("InsertLeave", {
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "json", "yaml" },
+  pattern = { "json", "yaml", "lua" },
   callback = function()
     vim.opt_local.tabstop = 2
     vim.opt_local.softtabstop = 2
     vim.opt_local.shiftwidth = 2
+  end,
+})
+
+vim.api.nvim_create_autocmd({ "BufReadPost" }, {
+  group = vim.api.nvim_create_augroup("AutoProjectRoot", { clear = true }),
+  callback = function()
+    -- 排除临时缓冲区和无文件路径的情况
+    local file_path = vim.fn.expand("%:p")
+    if file_path == "" or vim.bo.buftype ~= "" then
+      return
+    end
+    -- 调用 ProjectRoot 并错误处理
+    local status, _ = pcall(vim.cmd.ProjectRoot)
+    if not status then
+      -- vim.notify("ProjectRoot command failed", vim.log.levels.WARN)
+    end
   end,
 })
