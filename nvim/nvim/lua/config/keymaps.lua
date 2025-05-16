@@ -5,7 +5,7 @@
 local map = vim.keymap.set
 
 -- use ctrl-c to copy text to system clipboard in visual mode
-map("x", "<C-c>", '"*y', { desc = "Copy to system clipboard", remap = false })
+map("x", "<C-c>", '"+y', { desc = "Copy to system clipboard", remap = false })
 map("n", "Y", "Vy", { desc = "Yank the whole line when press Y in normal mode", remap = false })
 
 map("n", "<leader>-", ":Oil<CR>", { desc = "Open oil.nvim buffer", remap = false })
@@ -30,3 +30,8 @@ map("n", "<C-_>", "gcc", { desc = "toggle comment for current line", remap = tru
 map("x", "<C-_>", "gc", { desc = "toggle comment for selected lines", remap = true })
 
 map("n", "<F4>", ":q<CR>", { desc = "close current window", remap = false })
+
+-- paste from clipboard
+map("x", "<C-v>", '"+p`]', { desc = "paste from clipboard in visual mode", remap = false })
+map("i", "<C-v>", "<C-r>+", { desc = "paste from clipboard in insert mode", remap = false })
+map("c", "<C-v>", "<C-r>+", { desc = "paste to command", remap = false })
