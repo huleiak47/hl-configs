@@ -1,0 +1,5 @@
+! 屏蔽 Google 搜索结果中的 CSDN 链接
+google.*##div.MjjYud a[href*="csdn.net"]:upward(div.MjjYud)
+
+! 屏蔽 Bing 搜索结果中的 CSDN 链接
+bing.*##li.b_algo a[href*="csdn.net"]:upward(li.b_algo)
