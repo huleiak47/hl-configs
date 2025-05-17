@@ -1,0 +1,9 @@
+{
+  // line length
+  "MD013": {
+    "line_length": 500,
+    "heading_line_length": 80,
+  },
+  // more than one H1 header in markdown file
+  "MD025": false,
+}
