@@ -21,3 +21,4 @@ opt.title = true
 opt.clipboard = ""
 opt.wrap = true
 opt.formatoptions = "roqnlmM1j"
+opt.fileformats = "unix,dos"

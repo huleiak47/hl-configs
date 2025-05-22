@@ -4,12 +4,13 @@ return {
     -- 定义新 formatter
     formatters = {
       mdformat = {
-        command = "cmd", -- 系统 PATH 中的可执行程序名
-        args = { "/c", "mdformat" }, -- 格式化参数 (可选)
+        command = "mdformat", -- 系统 PATH 中的可执行程序名
+        args = {}, -- 不要删除
         stdin = true, -- 是否使用标准输入 (按工具要求)
       },
       pumlformat = {
         command = "pumlformat",
+        args = {},
         stdin = true,
       },
     },

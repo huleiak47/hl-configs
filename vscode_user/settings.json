@@ -91,19 +91,19 @@
     "clang-format.language.c.fallbackStyle": "WebKit",
     "externalFormatters.languages": {
         "markdown": {
-            "command": "python.exe",
-            "arguments": ["D:/software/bin/mdformat"]
+            "command": "mdformat",
+            "arguments": []
         },
         "plantuml": {
             "command": "pumlformat",
             "arguments": []
         },
         "java": {
-            "command": "clang-format.exe",
+            "command": "clang-format",
             "arguments": ["--assume-filename=test.java"]
         },
         "latex": {
-            "command": "latexindent.exe",
+            "command": "latexindent",
             "arguments": []
         }
     },
@@ -209,7 +209,8 @@
         "up",
         "down",
         "backspace",
-        "delete"
+        "delete",
+        "i"
     ],
     "editor.formatOnSave": true,
     "errorLens.messageEnabled": true,
