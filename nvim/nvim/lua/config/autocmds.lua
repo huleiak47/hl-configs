@@ -44,7 +44,7 @@ vim.api.nvim_create_autocmd("InsertLeave", {
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "json", "yaml", "lua", "jsonc" },
+  pattern = { "json", "yaml", "lua", "jsonc", "cmake" },
   callback = function()
     vim.opt_local.tabstop = 2
     vim.opt_local.softtabstop = 2
@@ -63,7 +63,7 @@ vim.api.nvim_create_autocmd({ "BufReadPost" }, {
     -- 调用 ProjectRoot 并错误处理
     local status, _ = pcall(vim.cmd.ProjectRoot)
     if not status then
-      -- vim.notify("ProjectRoot command failed", vim.log.levels.WARN)
+      vim.notify("ProjectRoot command failed", vim.log.levels.DEBUG)
     end
   end,
 })

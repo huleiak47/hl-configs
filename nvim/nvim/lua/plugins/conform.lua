@@ -13,11 +13,18 @@ return {
         args = {},
         stdin = true,
       },
+      -- install cmakelang by pip or Mason
+      cmakeformat = {
+        command = "cmake-format",
+        args = { "$FILENAME" },
+        stdin = true,
+      },
     },
     -- 为文件类型指定格式化程序
     formatters_by_ft = {
       markdown = { "mdformat" },
       plantuml = { "pumlformat" },
+      cmake = { "cmakeformat" },
     },
   },
 }
