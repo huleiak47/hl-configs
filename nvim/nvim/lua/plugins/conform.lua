@@ -15,8 +15,8 @@ return {
       },
       -- install cmakelang by pip or Mason
       cmakeformat = {
-        command = "cmake-format",
-        args = { "$FILENAME" },
+        command = vim.fn.stdpath("config") .. "/scripts/cmake-format-wrap",
+        args = {},
         stdin = true,
       },
     },

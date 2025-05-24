@@ -239,3 +239,7 @@ ESC::
 
 XButton1::Send("{PgDn}")
 XButton2::Send("{PgUp}")
+
+#HotIf WinActive("ahk_class Chrome_WidgetWin_1 ahk_exe msedge.exe")
+^n::Send("{Down}")
+#HotIf

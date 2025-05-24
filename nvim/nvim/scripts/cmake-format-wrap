@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+cat >/tmp/cmake_format_temp.cmake
+
+cmake-format /tmp/cmake_format_temp.cmake
