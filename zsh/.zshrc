@@ -106,17 +106,8 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 
-export EDITOR='nvim'
-export PATH=/bin:/usr/bin:$PATH
-export SRV='hul@192.168.8.141'
-
-
 if [ "$(command -v gitui)" ]; then
     alias gu=gitui
-fi
-
-if [ "$(command -v cat)" ]; then
-    alias cat='bat -p'
 fi
 
 if [ "$(command -v lsd)" ]; then
@@ -142,13 +133,13 @@ function fzf_init() {
 }
 
 function mcfly_init() {
-    export MCFLY_FUZZY=2
-    export MCFLY_RESULTS=50
-    export MCFLY_RESULTS_SORT=LAST_RUN
-    export MCFLY_HISTORY_LIMIT=10000
-    export MCFLY_KEY_SCHEME=vim
-    
-    if [ "$(command -v fzf)" ]; then
+    if [ "$(command -v mcfly)" ]; then
+        export MCFLY_FUZZY=2
+        export MCFLY_RESULTS=50
+        export MCFLY_RESULTS_SORT=LAST_RUN
+        export MCFLY_HISTORY_LIMIT=10000
+        export MCFLY_KEY_SCHEME=vim
+
         eval "$(mcfly init zsh)"
     fi
 }
@@ -169,13 +160,20 @@ precmd() {
 }
 
 export LC_ALL=zh_CN.UTF-8
+export LANGUAGE=zh_CN.UTF-8
+
 export RUSTUP_DIST_SERVER="https://rsproxy.cn"
 export RUSTUP_UPDATE_ROOT="https://rsproxy.cn/rustup"
 
-export UV_LINK_MODE=copy
 
 alias pc=proxychains
 alias make="make -j"
 
 # for windows
-alias gnvim="start wezterm-gui start nvim"
+if (( $+USERPROFILE )); then
+    alias gnvim="start wezterm-gui start nvim"
+    export UV_LINK_MODE=copy
+    export SRV='hul@192.168.8.141'
+    export PATH=/bin:/usr/bin:$PATH
+    export EDITOR='nvim'
+fi

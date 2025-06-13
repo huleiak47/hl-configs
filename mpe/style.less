@@ -1,10 +1,11 @@
 /* Please visit the URL below for more information: */
 /*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
 
-@base-font: "思源黑体", Arial, YaHei, sans-serif;
+@base-font: "思源黑体 CN", Arial, YaHei, sans-serif;
 @title-font: @base-font;
+// @content-font: "思源宋体", NSimSun, serif;
 @content-font: @base-font;
-@code-font: "Sarasa Fixed SC", Consolas, NSimSun, monospace;
+@code-font: "霞鹜文楷等宽", "Sarasa Fixed SC", Consolas, NSimSun, monospace;
 
 .markdown-preview.markdown-preview {
   // modify your style here
@@ -57,7 +58,6 @@
   }
 
   h1 {
-    text-align: center;
     font-size: 180%;
   }
 
@@ -94,4 +94,45 @@
     font-family: @title-font;
   }
 
+  h1 {
+    counter-reset: counter_h2;
+  }
+  h2 {
+    counter-increment: counter_h2;
+    counter-reset: counter_h3;
+  }
+  h3 {
+    counter-increment: counter_h3;
+    counter-reset: counter_h4;
+  }
+  h4 {
+    counter-increment: counter_h4;
+    counter-reset: counter_h5;
+  }
+  h5 {
+    counter-increment: counter_h5;
+    counter-reset: counter_h6;
+  }
+  h6 {
+    counter-increment: counter_h6;
+  }
+
+  h2::before {
+    content: counter(counter_h2) " ";
+  }
+  h3::before {
+    content: counter(counter_h2) "." counter(counter_h3) " ";
+  }
+  h4::before {
+    content: counter(counter_h2) "." counter(counter_h3) "." counter(counter_h4)
+      " ";
+  }
+  h5::before {
+    content: counter(counter_h2) "." counter(counter_h3) "." counter(counter_h4)
+      "." counter(counter_h5) " ";
+  }
+  h6::before {
+    content: counter(counter_h2) "." counter(counter_h3) "." counter(counter_h4)
+      "." counter(counter_h5) "." counter(counter_h6) " ";
+  }
 }

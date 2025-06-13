@@ -7,7 +7,13 @@ return {
   opts = {
     servers = {
       clangd = {
-        mason = vim.fn.executable("clangd") == 0,
+        mason = false,
+      },
+      pyright = {
+        mason = false,
+      },
+      ruff = {
+        mason = false,
       },
     },
   },

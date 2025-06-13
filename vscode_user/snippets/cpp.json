@@ -17,7 +17,7 @@
   },
   "once": {
     "prefix": "once",
-    "body": ["#ifndef __${1}__", "#define __${1}__", "$0", "#endif // __${1}__"]
+    "body": ["#ifndef ${1}", "#define ${1}", "$0", "#endif // ${1}"]
   },
   "ifdef": {
     "prefix": "#ifdef",
@@ -48,4 +48,3 @@
     ]
   }
 }
-

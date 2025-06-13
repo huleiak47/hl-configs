@@ -6,21 +6,24 @@ return {
     -- 在此处添加任何选项
     -- 例如
     provider = "siliconflow",
-    vendors = {
+    providers = {
       siliconflow = {
         __inherited_from = "openai",
         api_key_name = "SILICONFLOW_API_KEY",
         endpoint = "https://api.siliconflow.cn/v1",
         model = "Pro/deepseek-ai/DeepSeek-V3", -- 您想要的模型（或使用 gpt-4o 等）
-        timeout = 30000, -- 超时时间（毫秒），增加此值以适应推理模型
-        temperature = 0,
-        max_tokens = 8192, -- 增加此值以包括推理模型的推理令牌
+        extra_request_body = {
+          timeout = 30000, -- 超时时间（毫秒），增加此值以适应推理模型
+          temperature = 0,
+          max_tokens = 8192, -- 增加此值以包括推理模型的推理令牌
+          --reasoning_effort = "medium", -- low|medium|high，仅用于推理模型
+        },
       },
     },
   },
   -- 如果您想从源代码构建，请执行 `make BUILD_FROM_SOURCE=true`
-  build = "make",
-  -- build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false", -- 对于 Windows
+  -- build = "make",
+  build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false", -- 对于 Windows
   dependencies = {
     "nvim-treesitter/nvim-treesitter",
     "stevearc/dressing.nvim",

@@ -8,7 +8,7 @@ local config = wezterm.config_builder()
 
 -- For example, changing the color scheme:
 config.color_scheme = "Catppuccin Mocha"
-config.font = wezterm.font("Sarasa Fixed SC")
+config.font = wezterm.font_with_fallback({ "霞鹜文楷等宽", "Sarasa Fixed SC", "Consolas", "Monospace" })
 config.front_end = "WebGpu"
 config.webgpu_power_preference = "HighPerformance"
 
@@ -31,10 +31,11 @@ config.enable_scroll_bar = true
 config.launch_menu = {
 	{ label = "Git Zsh", args = { "zsh.exe" } },
 	{ label = "192.168.8.141", args = { "ssh.exe", "hul@192.168.8.141" } },
+	{ label = "192.168.8.82 (PCIE)", args = { "ssh.exe", "osr@192.168.8.82" } },
 	{ label = "IPython", args = { "ipython.exe" } },
 	{ label = "Git Bash", args = { "C:/Users/osr/scoop/shims/bash.exe" } },
 	{ label = "CMD", args = { "cmd.exe" } },
-	{ label = "WSL", args = { "wsl.exe" } },
+	{ label = "WSL", args = { "wsl", "--cd", "~", "--", "zsh" } },
 	--{ label = 'CMDEX',           args = { 'cmdex.exe' }, },
 	{ label = "PowerShell", args = { "C:/Windows/System32/WindowsPowerShell/v1.0/powershell.exe" } },
 }

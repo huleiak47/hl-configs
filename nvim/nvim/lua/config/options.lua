@@ -22,3 +22,9 @@ opt.clipboard = ""
 opt.wrap = true
 opt.formatoptions = "roqnlmM1j"
 opt.fileformats = "unix,dos"
+opt.spell = false
+
+if vim.fn.has("wsl") then
+  -- win32yank.exe will be run
+  vim.g.clipboard = "win32yank"
+end
