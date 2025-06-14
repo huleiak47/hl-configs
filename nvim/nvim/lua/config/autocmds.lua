@@ -41,7 +41,7 @@ vim.api.nvim_create_autocmd({ "BufReadPost" }, {
     -- 调用 ProjectRoot 并错误处理
     local status, _ = pcall(vim.cmd.ProjectRoot)
     if not status then
-      vim.notify("ProjectRoot command failed", vim.log.levels.DEBUG)
+      -- vim.notify("ProjectRoot command failed", vim.log.levels.DEBUG)
     end
   end,
 })

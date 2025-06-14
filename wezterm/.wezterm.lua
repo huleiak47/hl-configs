@@ -10,9 +10,10 @@ local config = wezterm.config_builder()
 config.color_scheme = "Catppuccin Mocha"
 config.font = wezterm.font_with_fallback({ "霞鹜文楷等宽", "Sarasa Fixed SC", "Consolas", "Monospace" })
 config.front_end = "WebGpu"
-config.webgpu_power_preference = "HighPerformance"
+config.webgpu_power_preference = "LowPower"
 
 config.default_prog = { "zsh.exe" }
+config.default_prog = { "wsl", "--cd", "~", "--", "zsh" }
 config.default_cwd = "."
 
 config.initial_cols = 130
