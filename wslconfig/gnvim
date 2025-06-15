@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+/c/Users/james/scoop/shims/wezterm-gui.exe start wsl --cd `pwd` -- source '~/.bashrc' '&&' nvim "$@"
