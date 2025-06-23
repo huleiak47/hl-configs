@@ -1,6 +1,7 @@
 [core]
 	autocrlf = input
 	filemode = false
+	quotepath = false
 	#safecrlf = true
 [user]
 	email = huleiak47@gmail.com
@@ -51,6 +52,10 @@
     commit-decoration-style = bold yellow box ul
     file-style = bold yellow ul
     file-decoration-style = none
+
+[http]
+	sslVerify = false
+
 [http "https://github.com"]
 	proxy = http://127.0.0.1:7890
 [safe]

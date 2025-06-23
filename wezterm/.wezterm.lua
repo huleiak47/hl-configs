@@ -13,7 +13,6 @@ config.front_end = "WebGpu"
 config.webgpu_power_preference = "LowPower"
 
 config.default_prog = { "zsh.exe" }
-config.default_prog = { "wsl", "--cd", "~", "--", "zsh" }
 config.default_cwd = "."
 
 config.initial_cols = 130
@@ -30,15 +29,12 @@ config.enable_scroll_bar = true
 
 -- 启动菜单的一些启动项
 config.launch_menu = {
+	{ label = "WSL", args = { "wsl", "--cd", "~", "--", "zsh" } },
 	{ label = "Git Zsh", args = { "zsh.exe" } },
-	{ label = "192.168.8.141", args = { "ssh.exe", "hul@192.168.8.141" } },
-	{ label = "192.168.8.82 (PCIE)", args = { "ssh.exe", "osr@192.168.8.82" } },
-	{ label = "IPython", args = { "ipython.exe" } },
 	{ label = "Git Bash", args = { "C:/Users/osr/scoop/shims/bash.exe" } },
 	{ label = "CMD", args = { "cmd.exe" } },
-	{ label = "WSL", args = { "wsl", "--cd", "~", "--", "zsh" } },
-	--{ label = 'CMDEX',           args = { 'cmdex.exe' }, },
 	{ label = "PowerShell", args = { "C:/Windows/System32/WindowsPowerShell/v1.0/powershell.exe" } },
+	{ label = "IPython", args = { "ipython.exe" } },
 }
 
 config.disable_default_key_bindings = false

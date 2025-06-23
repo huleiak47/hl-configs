@@ -1,5 +1,5 @@
 return {
-  { "tpope/vim-surround" },
-  { "tpope/vim-fugitive" },
-  { "tpope/vim-repeat" },
+  { "tpope/vim-surround", vscode = true },
+  { "tpope/vim-fugitive", vscode = true },
+  { "tpope/vim-repeat", vscode = true },
 }

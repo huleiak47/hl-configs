@@ -1,5 +1,7 @@
 @echo off
 
-cat >%TMP%\cmake_format_temp.cmake
+cat >.cmake_format_temp.cmake
 
-call cmake-format %TMP%\cmake_format_temp.cmake
+call cmake-format %* .cmake_format_temp.cmake
+
+del /Q .cmake_format_temp.cmake

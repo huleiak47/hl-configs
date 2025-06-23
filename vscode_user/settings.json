@@ -228,5 +228,6 @@
     ],
     "cmake.buildTask": true,
     "cmake.enableAutomaticKitScan": false,
-    "editor.accessibilitySupport": "on"
+    "editor.accessibilitySupport": "on",
+    "C_Cpp.intelliSenseEngine": "disabled"
 }

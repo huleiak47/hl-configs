@@ -192,22 +192,25 @@ zvm_after_init_commands+=(fzf_init mcfly_init)
 #     unset exit_code
 # }
 
-export LC_ALL=zh_CN.UTF-8
-export LANGUAGE=zh_CN.UTF-8
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
 
 export RUSTUP_DIST_SERVER="https://rsproxy.cn"
 export RUSTUP_UPDATE_ROOT="https://rsproxy.cn/rustup"
 
-alias pc=proxychains
 alias make="make -j"
+alias vim=nvim
 
 # for windows
 if (( $+USERPROFILE )); then
     alias gnvim="start wezterm-gui start nvim"
+    alias fd="fd --path-separator '//'"
+    alias pc=proxychains
     export UV_LINK_MODE=copy
     export SRV='hul@192.168.8.141'
     export PATH=/bin:/usr/bin:$PATH
 else
+    alias pc=proxychains4
     function fgg() {
         _JOBS=`jobs`
         _LINES=`echo $_JOBS | wc -l`
@@ -234,3 +237,4 @@ fi
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
