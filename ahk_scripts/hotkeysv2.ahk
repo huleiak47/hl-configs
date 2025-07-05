@@ -4,9 +4,8 @@ HOME := EnvGet("USERPROFILE")
 SetWorkingDir(HOME)
 
 SCOOP_APPS := HOME "\scoop\apps"
-CMD_RUN := SCOOP_APPS "\windows-terminal\current\wt.exe --profile cmdex"
-; BASH_RUN := SCOOP_APPS "\windows-terminal\current\wt.exe --profile `"Git Zsh`""
-BASH_RUN := SCOOP_APPS "\wezterm\current\wezterm-gui.exe"
+BASH_RUN := SCOOP_APPS "\wezterm\current\wezterm-gui.exe start zsh.exe"
+WSL_RUN := SCOOP_APPS "\wezterm\current\wezterm-gui.exe start wsl --cd ~ zsh"
 
 SetTitleMatchMode("RegEx")
 DetectHiddenWindows(1)
@@ -37,11 +36,11 @@ SwitchWindow(title)
 {
     Run(BASH_RUN, HOME)
 }
-
-^+#l::
+^+#w::
 {
-    Run(CMD_RUN, HOME)
+    Run(WSL_RUN, HOME)
 }
+
 
 #n::
 {
