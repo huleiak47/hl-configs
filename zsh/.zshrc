@@ -125,17 +125,11 @@ if [ -d ~/toolchains ]; then
     done
 fi
 
-if [ -d ~/bin ]; then
-    export PATH=~/bin:$PATH
-fi
+[ -d ~/bin ] && export PATH=~/bin:$PATH
 
-if [ -d ~/local/bin ]; then
-    export PATH=~/local/bin:$PATH
-fi
+[ -d ~/local/bin ] && export PATH=~/local/bin:$PATH
 
-if [ "$(command -v gitui)" ]; then
-    alias gu=gitui
-fi
+[ "$(command -v gitui)" ] && alias gu=gitui
 
 if [ "$(command -v lsd)" ]; then
     alias ls='lsd'
@@ -144,17 +138,13 @@ if [ "$(command -v lsd)" ]; then
     alias lla='lsd -lAh --date "+%Y/%m/%d-%H:%M:%S"'
 fi
 
-if [ "$(command -v bat)" ]; then
-  unalias -m 'cat'
-  alias cat='bat -pp'
-fi
+[ "$(command -v bat)" ] && alias cat='bat -pp'
 
-if [ "$(command -v yazi)" ]; then
-  alias y=yazi
-fi
+[ "$(command -v yazi)" ] && alias y=yazi
 
 if [ "$(command -v nvim)" ]; then
     export EDITOR=nvim
+    alias vim=nvim
 else
     export EDITOR=vim
 fi
@@ -199,7 +189,6 @@ export RUSTUP_DIST_SERVER="https://rsproxy.cn"
 export RUSTUP_UPDATE_ROOT="https://rsproxy.cn/rustup"
 
 alias make="make -j"
-alias vim=nvim
 
 # for windows
 if (( $+USERPROFILE )); then
@@ -207,7 +196,6 @@ if (( $+USERPROFILE )); then
     alias fd="fd --path-separator '//'"
     alias pc=proxychains
     export UV_LINK_MODE=copy
-    export SRV='hul@192.168.8.141'
     export PATH=/bin:/usr/bin:$PATH
 else
     alias pc=proxychains4
@@ -238,3 +226,4 @@ fi
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+[ -f ~/.my_sh_init ] && source ~/.my_sh_init

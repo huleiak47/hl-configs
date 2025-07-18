@@ -1,7 +1,7 @@
 Windows Registry Editor Version 5.00
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Console\TrueTypeFont]
-"00"="Sarasa Fixed SC"
+"00"="LXGW WenKai Mono"
 "0"="Consolas"
 "000"="FixedSys"
 "936"="*ÐÂËÎÌå"
@@ -29,7 +29,7 @@ Windows Registry Editor Version 5.00
 "ExtendedEditKey"=dword:00000001
 "ExtendedEditKeyCustom"=dword:00000000
 "FilterOnPaste"=dword:00000001
-"FontSize"=dword:00140000
+"FontSize"=dword:00130000
 "ForceV2"=dword:00000001
 "FullScreen"=dword:00000000
 "HistoryBufferSize"=dword:00000032
@@ -48,7 +48,7 @@ Windows Registry Editor Version 5.00
 "WindowAlpha"=dword:000000ff
 "WindowSize"=dword:002800a0
 "WordDelimiters"=dword:00000000
-"FaceName"="Sarasa Fixed SC"
+"FaceName"="LXGW WenKai Mono"
 "FontFamily"=dword:00000036
 "FontWeight"=dword:00000190
 "CurrentPage"=dword:00000003

@@ -47,7 +47,7 @@
         "editor.formatOnSave": false
     },
     "[toml]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+        "editor.defaultFormatter": "tamasfe.even-better-toml"
     },
     "explorer.confirmDragAndDrop": false,
     "editor.mouseWheelZoom": true,
@@ -86,7 +86,8 @@
     "editor.copyWithSyntaxHighlighting": false,
     "remote.SSH.remotePlatform": {
         "192.168.8.141": "linux",
-        "192.168.8.82": "linux"
+        "192.168.8.82": "linux",
+        "192.168.8.2": "linux"
     },
     "python.languageServer": "Pylance",
     "clang-format.language.c.fallbackStyle": "WebKit",
@@ -229,5 +230,6 @@
     "cmake.buildTask": true,
     "cmake.enableAutomaticKitScan": false,
     "editor.accessibilitySupport": "on",
-    "C_Cpp.intelliSenseEngine": "disabled"
+    "C_Cpp.intelliSenseEngine": "disabled",
+    "git.ignoreMissingGitWarning": true
 }
