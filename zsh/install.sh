@@ -50,17 +50,14 @@ if [ ! "$(command -v zsh)" ]; then
     exit 1
 fi
 
-if [ -d ~/.oh-my-zsh ]; then
-    mv ~/.oh-my-zsh ~/.oh-my-zsh.bak
+if [ ! -d ~/.oh-my-zsh ]; then
+    git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
+    git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+    git clone https://github.com/jeffreytse/zsh-vi-mode ~/.oh-my-zsh/custom/plugins/zsh-vi-mode
+    git clone https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel10k
 fi
 
-git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
-git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
-git clone https://github.com/jeffreytse/zsh-vi-mode ~/.oh-my-zsh/custom/plugins/zsh-vi-mode
-git clone https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel10k
-
-if [ -f ~/.zshrc ]; then
-    mv ~/.zshrc ~/.zshrc.bak
+if [ ! -f ~/.zshrc ]; then
+    cp $(pwd)/.zshrc ~/.zshrc
 fi
-cp $(pwd)/.zshrc ~/.zshrc
