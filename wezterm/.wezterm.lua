@@ -26,6 +26,8 @@ config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
 config.window_padding = { left = 10, right = 15, top = 10, bottom = 0 }
 -- 启用滚动条
 config.enable_scroll_bar = true
+-- 输入时不隐藏鼠标指针
+config.hide_mouse_cursor_when_typing = false
 
 -- 启动菜单的一些启动项
 config.launch_menu = {
