@@ -1,0 +1,119 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "icon_theme": "Catppuccin Mocha",
+  "ssh_connections": [
+    {
+      "host": "127.0.0.1",
+      "username": "james",
+      "port": 2222,
+      "projects": [
+        {
+          "paths": ["/home/james/projects/ehsm_bl"]
+        },
+        {
+          "paths": ["/home/james/projects/ehsm_fw"]
+        },
+        {
+          "paths": ["/home/james/projects/ehsm_host"]
+        },
+        {
+          "paths": ["/home/james/projects/ehsm_oscca_test_system"]
+        },
+        {
+          "paths": ["/home/james/projects/ehsm_oscca_test_system_worktree/a001"]
+        }
+      ],
+      "nickname": "local-wsl2"
+    }
+  ],
+  "base_keymap": "VSCode",
+  "ui_font_size": 15,
+  "buffer_font_size": 16,
+  "theme": {
+    "mode": "dark",
+    "light": "Gruvbox Light Soft",
+    "dark": "Catppuccin Mocha - No Italics"
+  },
+  "wrap_guides": [80, 120],
+  "buffer_font_family": "霞鹜文楷等宽",
+  "buffer_line_height": "standard",
+  "buffer_font_weight": 500,
+  "inlay_hints": {
+    "enabled": false,
+    "show_background": true,
+    "show_type_hints": true,
+    "show_parameter_hints": true,
+    "show_other_hints": true,
+    "toggle_on_modifiers_press": {
+      "control": true,
+      "shift": false,
+      "alt": true,
+      "platform": false,
+      "function": false
+    }
+  },
+  "format_on_save": "on",
+  "languages": {
+    "Python": {
+      "formatter": { "external": { "command": "black", "arguments": ["-"] } },
+      "language_servers": ["basedpyright", "!pylsp", "!pyright"]
+    },
+    "LaTeX": {
+      "format_on_save": "off"
+    },
+    "Markdown": {
+      "formatter": {
+        "external": {
+          "command": "mdformat",
+          "arguments": []
+        }
+      }
+    }
+  },
+
+  "lsp": {
+    "basedpyright": {
+      "settings": {
+        "basedpyright.analysis": {
+          "typeCheckingMode": "strict",
+          "diagnosticMode": "workspace",
+          "inlayHints.callArgumentNames": false
+        }
+      }
+    }
+  },
+  "terminal": {
+    "shell": { "program": "zsh.exe" },
+    "line_height": "standard"
+  },
+  "auto_signature_help": true,
+  "use_smartcase_search": true,
+  "diagnostics": {
+    "inline": {
+      "enabled": true,
+      "update_debounce_ms": 150,
+      "padding": 4,
+      "min_column": 0,
+      "max_severity": null
+    }
+  },
+  "file_types": { "C": ["h", "c"] },
+  "soft_wrap": "editor_width",
+  // Vim settings
+  "vim": {
+    "default_mode": "normal",
+    "toggle_relative_line_numbers": false,
+    "use_system_clipboard": "never",
+    "use_smartcase_find": true,
+    "highlight_on_yank_duration": 200,
+    "custom_digraphs": {}
+  },
+  "vim_mode": true
+}

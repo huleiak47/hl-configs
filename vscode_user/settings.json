@@ -87,9 +87,9 @@
     "remote.SSH.remotePlatform": {
         "192.168.8.141": "linux",
         "192.168.8.82": "linux",
-        "192.168.8.2": "linux"
+        "192.168.8.2": "linux",
+        "WSL2": "linux"
     },
-    "python.languageServer": "Pylance",
     "clang-format.language.c.fallbackStyle": "WebKit",
     "externalFormatters.languages": {
         "markdown": {
@@ -214,7 +214,6 @@
         "delete",
         "i"
     ],
-    "editor.formatOnSave": true,
     "errorLens.messageEnabled": true,
     "openInExternalApp.openMapper": [
         {
@@ -231,5 +230,12 @@
     "cmake.enableAutomaticKitScan": false,
     "editor.accessibilitySupport": "on",
     "C_Cpp.intelliSenseEngine": "disabled",
-    "git.ignoreMissingGitWarning": true
+    "git.ignoreMissingGitWarning": true,
+    "update.enableWindowsBackgroundUpdates": false,
+    "update.mode": "none",
+    "tinymist.fontPaths": [
+        "D:/files/fonts"
+    ],
+    "accessibility.signalOptions.volume": 0,
+    "basedpyright.analysis.typeCheckingMode": "strict"
 }

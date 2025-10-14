@@ -1,0 +1,11 @@
+{
+  "Header once": {
+    "preifx": "once",
+    "body": [
+      "#ifndef ${1:}_H",
+      "#define ${1}_H",
+      "$0",
+      "#endif // ${1}_H"
+    ]
+  }
+}
