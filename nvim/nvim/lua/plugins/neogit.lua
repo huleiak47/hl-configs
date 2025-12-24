@@ -3,7 +3,7 @@ return {
   cmd = "Neogit",
   config = function()
     require("neogit").setup({
-      kind = "split", -- opens neogit in a split
+      kind = "floating", -- opens neogit in a floating window
       signs = {
         -- { CLOSED, OPENED }
         section = { "", "" },

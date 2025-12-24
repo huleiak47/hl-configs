@@ -10,13 +10,13 @@
         "args": "\"+y"
     },
     // 按s键删除选择文本并进入insert状态，原功能有时光标会定位到行尾
-    // {
-    //     "key": "s",
-    //     // activate during visual mode
-    //     "when": "editorTextFocus && neovim.mode == visual",
-    //     "command": "vscode-neovim.send",
-    //     "args": "xi"
-    // },
+    {
+        "key": "s",
+        // activate during visual mode
+        "when": "editorTextFocus && neovim.mode == visual",
+        "command": "vscode-neovim.send",
+        "args": "xi"
+    },
     // shift+y复制整行，原功能复制当前位置到行尾，和VIM不同
     {
         "key": "shift+y",

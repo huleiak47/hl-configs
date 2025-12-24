@@ -19,12 +19,18 @@ return {
         args = {},
         stdin = true,
       },
+      typstyle = {
+        command = "typstyle",
+        args = {},
+        stdin = true,
+      },
     },
     -- 为文件类型指定格式化程序
     formatters_by_ft = {
       markdown = { "mdformat" },
       plantuml = { "pumlformat" },
       cmake = { "cmakeformat" },
+      typst = { "typstyle" },
     },
   },
 }

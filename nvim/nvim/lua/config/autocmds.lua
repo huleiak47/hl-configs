@@ -8,7 +8,7 @@
 -- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
 
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "json", "yaml", "lua", "jsonc", "cmake" },
+  pattern = { "json", "yaml", "lua", "jsonc", "cmake", "markdown" },
   callback = function()
     vim.opt_local.tabstop = 2
     vim.opt_local.softtabstop = 2

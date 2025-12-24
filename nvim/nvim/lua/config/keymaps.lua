@@ -20,7 +20,10 @@ map(
   "<Cmd>DiffviewFileHistory %<CR>",
   { desc = "DiffviewFileHistory, show current history", remap = false }
 )
-map("n", "<leader>gn", ":Neogit<CR>", { desc = "show neogit", remap = false })
+
+-- open neogit in different kind
+map("n", "<leader>gn", ":Neogit kind=floating<CR>", { desc = "Show neogit in floating", remap = false })
+map("n", "<leader>gN", ":Neogit kind=vsplit<CR>", { desc = "Show neogit in vsplit", remap = false })
 
 -- use c-/ to toggle comment
 map("n", "<C-/>", "gcc", { desc = "toggle comment for current line", remap = true })
@@ -35,3 +38,7 @@ map("n", "<F4>", ":q<CR>", { desc = "close current window", remap = false })
 map("x", "<C-v>", '"+p`]', { desc = "paste from clipboard in visual mode", remap = false })
 map("i", "<C-v>", "<C-r>+", { desc = "paste from clipboard in insert mode", remap = false })
 map("c", "<C-v>", "<C-r>+", { desc = "paste to command", remap = false })
+
+map("n", "<C-p>", "<leader>fF", { desc = "Find file (Project)", remap = true })
+
+map("n", "B", "<leader>fb", { desc = "Find buffer", remap = true })

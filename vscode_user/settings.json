@@ -15,7 +15,7 @@
     "editor.rulers": [80, 120],
     "git.path": "git",
     "editor.lineNumbers": "on",
-    "editor.fontFamily": "'霞鹜文楷等宽', 'Sarasa Fixed SC', 'Droid Sans Mono', 'Courier New', 微软雅黑",
+    "editor.fontFamily": "'Sarasa Fixed SC', '霞鹜文楷等宽', 'Droid Sans Mono', 'Courier New', 微软雅黑",
     "editor.quickSuggestionsDelay": 50,
     "editor.acceptSuggestionOnEnter": "off",
     "editor.acceptSuggestionOnCommitCharacter": false,
@@ -161,7 +161,7 @@
     "prettier.printWidth": 100,
     "prettier.tabWidth": 4,
     "diffEditor.ignoreTrimWhitespace": true,
-    "markdown-preview-enhanced.plantumlJarPath": "D:\\software\\plantuml\\plantuml-1.2025.1.jar",
+    "markdown-preview-enhanced.plantumlJarPath": "D:\\software\\plantuml\\plantuml-1.2025.4.jar",
     "git.openRepositoryInParentFolders": "never",
     "editor.unicodeHighlight.allowedLocales": {
         "zh-hans": true
@@ -237,5 +237,6 @@
         "D:/files/fonts"
     ],
     "accessibility.signalOptions.volume": 0,
-    "basedpyright.analysis.typeCheckingMode": "strict"
+    "basedpyright.analysis.typeCheckingMode": "strict",
+    "lldb.suppressUpdateNotifications": true
 }

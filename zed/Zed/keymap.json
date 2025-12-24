@@ -24,11 +24,21 @@
     "bindings": { "ctrl-c": ["workspace::SendKeystrokes", "\" + y"] }
   },
   {
+    "context": "vim_mode == visual",
+    "bindings": { "shift-s": ["vim::PushAddSurrounds", {}] }
+  },
+  {
     "context": "vim_mode == normal",
     "bindings": { "f4": ["workspace::SendKeystrokes", "ctrl-w q"] }
   },
   {
     "context": "vim_mode == normal",
     "bindings": { "Y": ["workspace::SendKeystrokes", "y y"] }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "alt-o": "editor::SwitchSourceHeader"
+    }
   }
 ]

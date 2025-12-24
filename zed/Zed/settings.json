@@ -7,6 +7,9 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "outline_panel": {
+    "dock": "right"
+  },
   "icon_theme": "Catppuccin Mocha",
   "ssh_connections": [
     {
@@ -44,7 +47,7 @@
   "wrap_guides": [80, 120],
   "buffer_font_family": "霞鹜文楷等宽",
   "buffer_line_height": "standard",
-  "buffer_font_weight": 500,
+  "buffer_font_weight": 500.0,
   "inlay_hints": {
     "enabled": false,
     "show_background": true,
@@ -64,6 +67,9 @@
     "Python": {
       "formatter": { "external": { "command": "black", "arguments": ["-"] } },
       "language_servers": ["basedpyright", "!pylsp", "!pyright"]
+    },
+    "Typst": {
+      "formatter": { "external": { "command": "typstyle", "arguments": [] } }
     },
     "LaTeX": {
       "format_on_save": "off"
@@ -106,6 +112,7 @@
   },
   "file_types": { "C": ["h", "c"] },
   "soft_wrap": "editor_width",
+  "proxy": "socks5://127.0.0.1:7891",
   // Vim settings
   "vim": {
     "default_mode": "normal",

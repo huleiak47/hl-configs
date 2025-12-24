@@ -1,5 +1,5 @@
 return {
-  "echasnovski/mini.comment",
+  "nvim-mini/mini.comment",
   opts = {
     -- 覆盖/追加注释符号
     options = {

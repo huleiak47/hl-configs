@@ -4,7 +4,17 @@ return {
     require("project_nvim").setup({
       manual_mode = false,
       detection_methods = { "lsp", "pattern" },
-      patterns = { ".git", ".svn", ".hg", "Makefile", "Cargo.toml", "pyproject.toml", "*.sln", "package.json" },
+      patterns = {
+        ".git",
+        ".svn",
+        ".hg",
+        "Cargo.toml",
+        "pyproject.toml",
+        "*.sln",
+        "package.json",
+        "CMakeLists.txt",
+        "Makefile",
+      },
       ignore_lsp = {},
       exclude_dirs = {},
       show_hidden = false,
