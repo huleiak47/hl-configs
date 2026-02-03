@@ -238,5 +238,9 @@
     ],
     "accessibility.signalOptions.volume": 0,
     "basedpyright.analysis.typeCheckingMode": "strict",
-    "lldb.suppressUpdateNotifications": true
+    "lldb.suppressUpdateNotifications": true,
+    "outline.showVariables": false,
+    "claudeCode.preferredLocation": "panel",
+    "editor.wordWrap": "on",
+    "editor.formatOnSave": true
 }
