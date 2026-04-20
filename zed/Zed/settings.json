@@ -7,6 +7,7 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "auto_update": false,
   "outline_panel": {
     "dock": "right"
   },
@@ -45,9 +46,9 @@
     "dark": "Catppuccin Mocha - No Italics"
   },
   "wrap_guides": [80, 120],
-  "buffer_font_family": "霞鹜文楷等宽",
+  "buffer_font_family": "更纱终端书呆黑体-简",
   "buffer_line_height": "standard",
-  "buffer_font_weight": 500.0,
+  "buffer_font_weight": 400.0,
   "inlay_hints": {
     "enabled": false,
     "show_background": true,
@@ -112,7 +113,7 @@
   },
   "file_types": { "C": ["h", "c"] },
   "soft_wrap": "editor_width",
-  "proxy": "socks5://127.0.0.1:7891",
+  "proxy": "socks5://127.0.0.1:7890",
   // Vim settings
   "vim": {
     "default_mode": "normal",

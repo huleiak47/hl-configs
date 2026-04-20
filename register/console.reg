@@ -1,7 +1,7 @@
 Windows Registry Editor Version 5.00
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Console\TrueTypeFont]
-"00"="LXGW WenKai Mono"
+"00"="更纱终端书呆黑体-简"
 "0"="Consolas"
 "000"="FixedSys"
 "936"="*新宋体"
@@ -48,7 +48,7 @@ Windows Registry Editor Version 5.00
 "WindowAlpha"=dword:000000ff
 "WindowSize"=dword:002800a0
 "WordDelimiters"=dword:00000000
-"FaceName"="LXGW WenKai Mono"
+"FaceName"="更纱终端书呆黑体-简"
 "FontFamily"=dword:00000036
 "FontWeight"=dword:00000190
 "CurrentPage"=dword:00000003

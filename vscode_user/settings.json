@@ -4,7 +4,7 @@
     "files.associations": {
         "SConstruct": "python",
         "*.scons": "python",
-        "*.h": "c"
+        "*.h": "c",
     },
     "files.eol": "\n",
     "editor.minimap.maxColumn": 80,
@@ -15,7 +15,7 @@
     "editor.rulers": [80, 120],
     "git.path": "git",
     "editor.lineNumbers": "on",
-    "editor.fontFamily": "'Sarasa Fixed SC', '霞鹜文楷等宽', 'Droid Sans Mono', 'Courier New', 微软雅黑",
+    "editor.fontFamily": "'更纱终端书呆黑体-简','Sarasa Fixed SC', '霞鹜文楷等宽', 'Droid Sans Mono', 'Courier New', 微软雅黑",
     "editor.quickSuggestionsDelay": 50,
     "editor.acceptSuggestionOnEnter": "off",
     "editor.acceptSuggestionOnCommitCharacter": false,
@@ -35,19 +35,19 @@
         "editor.quickSuggestions": {
             "comments": "on",
             "strings": "on",
-            "other": "on"
+            "other": "on",
         },
-        "editor.defaultFormatter": "SteefH.external-formatters"
+        "editor.defaultFormatter": "SteefH.external-formatters",
     },
     "[plantuml]": {
-        "editor.defaultFormatter": "SteefH.external-formatters"
+        "editor.defaultFormatter": "SteefH.external-formatters",
     },
     "[latex]": {
         "editor.defaultFormatter": "SteefH.external-formatters",
-        "editor.formatOnSave": false
+        "editor.formatOnSave": false,
     },
     "[toml]": {
-        "editor.defaultFormatter": "tamasfe.even-better-toml"
+        "editor.defaultFormatter": "tamasfe.even-better-toml",
     },
     "explorer.confirmDragAndDrop": false,
     "editor.mouseWheelZoom": true,
@@ -55,19 +55,19 @@
     "json.format.enable": true,
     "editor.suggestSelection": "first",
     "[c]": {
-        "editor.defaultFormatter": "xaver.clang-format"
+        "editor.defaultFormatter": "xaver.clang-format",
     },
     "[jsonc]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
     },
     "[cpp]": {
-        "editor.defaultFormatter": "xaver.clang-format"
+        "editor.defaultFormatter": "xaver.clang-format",
     },
     "[java]": {
-        "editor.defaultFormatter": "SteefH.external-formatters"
+        "editor.defaultFormatter": "SteefH.external-formatters",
     },
     "[json]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
     },
     "extensions.autoUpdate": false,
     "files.insertFinalNewline": true,
@@ -76,7 +76,7 @@
         "**/.classpath": true,
         "**/.project": true,
         "**/.settings": true,
-        "**/.factorypath": true
+        "**/.factorypath": true,
     },
     "markdown-preview-enhanced.enableExtendedTableSyntax": true,
     "markdown-preview-enhanced.latexEngine": "xelatex",
@@ -88,26 +88,26 @@
         "192.168.8.141": "linux",
         "192.168.8.82": "linux",
         "192.168.8.2": "linux",
-        "WSL2": "linux"
+        "WSL2": "linux",
     },
     "clang-format.language.c.fallbackStyle": "WebKit",
     "externalFormatters.languages": {
         "markdown": {
             "command": "mdformat",
-            "arguments": []
+            "arguments": [],
         },
         "plantuml": {
             "command": "pumlformat",
-            "arguments": []
+            "arguments": [],
         },
         "java": {
             "command": "clang-format",
-            "arguments": ["--assume-filename=test.java"]
+            "arguments": ["--assume-filename=test.java"],
         },
         "latex": {
             "command": "latexindent",
-            "arguments": []
-        }
+            "arguments": [],
+        },
     },
     "clang-format.language.cpp.fallbackStyle": "WebKit",
     "clang-format.language.apex.fallbackStyle": "{BasedOnStyle: WebKit, ColumnLimit: 120, IndentWidth: 4, AlignAfterOpenBracket: Align, AlignConsecutiveMacros: true, AlignConsecutiveBitFields: true, AlignOperands: true, AlignTrailingComments: true, AllowShortFunctionsOnASingleLine: None, AllowShortBlocksOnASingleLine: false, AllowShortIfStatementsOnASingleLine: false, AlwaysBreakTemplateDeclarations: true, KeepEmptyLinesAtTheStartOfBlocks: false, PointerAlignment: Left, SortIncludes: false}",
@@ -118,7 +118,7 @@
     "git-graph.defaultColumnVisibility": {
         "Date": true,
         "Author": true,
-        "Commit": true
+        "Commit": true,
     },
     "git.confirmSync": false,
     "python.analysis.typeCheckingMode": "strict",
@@ -126,7 +126,7 @@
         "--header-insertion=never",
         "--compile-commands-dir=${workspaceFolder}/build",
         "--completion-style=detailed",
-        "--enable-config"
+        "--enable-config",
     ],
     "clangd.fallbackFlags": ["-std=gnu99"],
     "clangd.path": "clangd.exe",
@@ -147,16 +147,16 @@
     "rust-analyzer.inlayHints.lifetimeElisionHints.useParameterNames": true,
     "hediet.vscode-drawio.resizeImages": null,
     "[css]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
     },
     "[html]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
     },
     "[vue]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
     },
     "[javascript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
     },
     "prettier.printWidth": 100,
     "prettier.tabWidth": 4,
@@ -164,10 +164,10 @@
     "markdown-preview-enhanced.plantumlJarPath": "D:\\software\\plantuml\\plantuml-1.2025.4.jar",
     "git.openRepositoryInParentFolders": "never",
     "editor.unicodeHighlight.allowedLocales": {
-        "zh-hans": true
+        "zh-hans": true,
     },
     "extensions.experimental.affinity": {
-        "asvetliakov.vscode-neovim": 1
+        "asvetliakov.vscode-neovim": 1,
     },
     "security.workspace.trust.untrustedFiles": "newWindow",
     "AutoHotkey2.InterpreterPath": "C:\\Users\\james\\scoop\\apps\\autohotkey\\current\\v2\\AutoHotkey64.exe",
@@ -179,7 +179,7 @@
     "workbench.editorAssociations": {
         "*.md": "default",
         "*.markdown": "default",
-        "*.puml": "default"
+        "*.puml": "default",
     },
     "chat.commandCenter.enabled": false,
     "diffEditor.renderSideBySide": true,
@@ -212,7 +212,7 @@
         "down",
         "backspace",
         "delete",
-        "i"
+        "i",
     ],
     "errorLens.messageEnabled": true,
     "openInExternalApp.openMapper": [
@@ -220,11 +220,11 @@
             "extensionName": "*",
             "apps": [
                 {
-                    "title": "nvim",
-                    "shellCommand": "wezterm-gui.exe start nvim ${file}"
-                }
-            ]
-        }
+                    "title": "gvim",
+                    "shellCommand": "gvim ${file}",
+                },
+            ],
+        },
     ],
     "cmake.buildTask": true,
     "cmake.enableAutomaticKitScan": false,
@@ -233,14 +233,13 @@
     "git.ignoreMissingGitWarning": true,
     "update.enableWindowsBackgroundUpdates": false,
     "update.mode": "none",
-    "tinymist.fontPaths": [
-        "D:/files/fonts"
-    ],
+    "tinymist.fontPaths": ["D:/files/fonts"],
     "accessibility.signalOptions.volume": 0,
     "basedpyright.analysis.typeCheckingMode": "strict",
     "lldb.suppressUpdateNotifications": true,
     "outline.showVariables": false,
     "claudeCode.preferredLocation": "panel",
     "editor.wordWrap": "on",
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
+    "security.allowedUNCHosts": ["wsl.localhost"],
 }

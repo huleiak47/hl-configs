@@ -21,4 +21,4 @@ elif cwd_wsl.startswith("//wsl.localhost/Debian"):
 if not cwd_wsl:
     cwd_wsl = "/"
 
-ret = sp.Popen(["wezterm-gui.exe", "start", "wsl", "--cd", cwd_wsl, "--", "zsh"])
+ret = sp.Popen(["wt.exe", "wsl", "--cd", cwd_wsl, "--", "zsh"])

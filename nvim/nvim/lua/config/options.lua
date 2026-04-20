@@ -23,6 +23,7 @@ opt.clipboard = ""
 opt.wrap = true
 opt.formatoptions = "roqnlmM1j"
 opt.fileformats = "unix,dos"
+opt.fileencodings = "utf-8,cp936,latin1"
 opt.spell = false
 
 if vim.fn.has("wsl") then
